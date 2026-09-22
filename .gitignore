@@ -1,0 +1,29 @@
+# Secrets
+.env
+*.pem
+
+# Java
+target/
+*.class
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform.lock.hcl
+
+# OS / editors
+.DS_Store
+.vscode/
+
+# Downloaded datasets (scripts/import-obf.sh)
+data/

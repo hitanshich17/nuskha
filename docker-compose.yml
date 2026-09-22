@@ -1,0 +1,84 @@
+# Local development environment for Nuskha.
+# Everything runs on your machine for free. AWS is only used later for deployment.
+#   docker compose up --build
+name: nuskha
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16          # PostgreSQL 16 with the pgvector extension
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-nuskha}
+      POSTGRES_USER: ${POSTGRES_USER:-nuskha}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nuskha_dev_password}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-nuskha} -d ${POSTGRES_DB:-nuskha}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  # Emulates S3 (label images) and SQS (scan job queue) locally.
+  # Newer LocalStack images may require a free auth token: set LOCALSTACK_AUTH_TOKEN in .env.
+  localstack:
+    image: localstack/localstack:4.4
+    environment:
+      SERVICES: s3,sqs
+      AWS_DEFAULT_REGION: us-east-1
+      LOCALSTACK_AUTH_TOKEN: ${LOCALSTACK_AUTH_TOKEN:-}
+    ports:
+      - "4566:4566"
+    volumes:
+      - ./infra/localstack/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh:ro
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:4566/_localstack/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  ai-service:
+    build: ./services/ai-service
+    environment:
+      APP_ENV: local
+      LLM_API_KEY: ${LLM_API_KEY:-}
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:8000/health')\""]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  core-api:
+    build: ./services/core-api
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      DB_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-nuskha}
+      DB_USER: ${POSTGRES_USER:-nuskha}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-nuskha_dev_password}
+      REDIS_HOST: redis
+      AI_SERVICE_URL: http://ai-service:8000
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      ai-service:
+        condition: service_healthy
+
+volumes:
+  postgres-data:
