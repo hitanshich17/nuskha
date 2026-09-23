@@ -52,7 +52,7 @@ last column, `import`.
 - [ ] **Neutrogena Rapid Wrinkle Repair Serum**: price and size.
   Page: https://www.neutrogena.com/products/skincare/rapid-wrinkle-repair-serum/6812014
 
-- [ ] **Paula's Choice 2% BHA Liquid Exfoliant**: ingredients (loaded by JavaScript) and size. Price on the page: $37.
+- [x] **Paula's Choice 2% BHA Liquid Exfoliant**: ingredients (loaded by JavaScript) and size. *(Done; size still unknown, optional.)* Price on the page: $37.
   Page: https://www.paulaschoice.com/skin-perfecting-2pct-bha-liquid-exfoliant/201-2010.html
   id: `paulas-choice-2-bha-liquid-exfoliant`
 - [ ] **Good Molecules Discoloration Correcting Serum**: ingredients (loaded by JavaScript). Then add this offer:
