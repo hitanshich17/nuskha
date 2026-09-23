@@ -87,5 +87,11 @@ as `fl oz`); ingredients copied exactly; OTC active ingredients go in `actives` 
   Page: https://www.cetaphil.com/us/products/product-categories/all-moisturizers/moisturizing-cream/302993917564.html
 - [ ] **Vanicream Daily Facial Moisturizer**: price + size.
   Page: https://www.vanicream.com/product/vanicream-daily-facial-moisturizer
-- [ ] **Neutrogena Hydro Boost Water Gel**: price + size.
-  Page: https://www.neutrogena.com/products/skincare/neutrogena-hydro-boost-water-gel-with-hyaluronic-acid/6811047
+- [ ] **Neutrogena Hydro Boost Water Gel (Fragrance Free)**: price + size.
+  Page: https://www.neutrogena.com/products/skincare/neutrogena-hydro-boost-water-gel-fragrance-free-moisturizer/6806482
+- [ ] **Aestura Atobarrier 365 Cream**: US price + size (the international store shows prices in JPY).
+  Page: https://int.aestura.com/products/atobarrier365-cream  (US retailers: Olive Young US, Amazon)
+- [ ] **Illiyoon Ceramide Ato Concentrate Cream**: whole product (no readable official store).
+  id: `illiyoon-ceramide-ato-concentrate-cream`
+- [ ] **Dr.Althea 345 Relief Cream**: whole product (no readable official store).
+  id: `dr-althea-345-relief-cream`
