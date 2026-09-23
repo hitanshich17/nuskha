@@ -44,7 +44,7 @@ last column, `import`.
 - [x] **Fresh Soy Face Cleanser**: whole product (site blocks automated reading).
   Page: https://www.fresh.com/us/skincare/categories/cleansers/soy-face-cleanser-H00006238.html
   id: `fresh-soy-face-cleanser`
-- [ ] **Youth To The People Superfood Cleanser**: whole product (site blocks automated reading).
+- [x] **Youth To The People Superfood Cleanser**: whole product (site blocks automated reading).
   Page: https://www.youthtothepeople.com/skincare/cleansers/superfood-cleanser/YTTP-10100.html
   id: `youth-to-the-people-superfood-cleanser`
 
