@@ -48,11 +48,12 @@ class CatalogImporterIntegrationTest {
 
         assertThat(result).isEqualTo(new CatalogImporter.Result(1, 2, 1));
         assertThat(jdbc.queryForMap("""
-                SELECT source, source_id, brand, category, image_url, source_url FROM products
+                SELECT source, source_id, brand, category, image_url, source_url, imported FROM products
                 """)).containsEntry("source", "curated")
                 .containsEntry("source_id", "gentle-cleanser")
                 .containsEntry("category", "cleanser")
-                .containsEntry("source_url", "https://brand-a.example/cleanser");
+                .containsEntry("source_url", "https://brand-a.example/cleanser")
+                .containsEntry("imported", false);
         assertThat(jdbc.queryForList("""
                 SELECT i.inci_name FROM product_ingredients pi JOIN ingredients i ON i.id = pi.ingredient_id
                 ORDER BY pi.position

@@ -30,7 +30,7 @@ public final class CatalogCsvReader {
     public static final Set<String> ROUTINE_CATEGORIES = Set.of("cleanser", "treatment", "moisturizer", "sunscreen");
 
     static final List<String> PRODUCT_COLUMNS =
-            List.of("id", "brand", "name", "category", "actives", "ingredients", "image_url", "source_url");
+            List.of("id", "brand", "name", "category", "actives", "ingredients", "image_url", "source_url", "import");
     static final List<String> OFFER_COLUMNS =
             List.of("product_id", "retailer", "price_usd", "size", "unit", "url", "checked_on");
 
@@ -39,8 +39,9 @@ public final class CatalogCsvReader {
     /** One active ingredient with its concentration, e.g. "Benzoyl Peroxide 4%". */
     private static final Pattern ACTIVE = Pattern.compile("^(.+?)\\s+(\\d+(?:\\.\\d+)?)\\s*%$");
 
+    /** {@code imported}: sold in the US only as an import (for sunscreens: not FDA-approved). */
     public record CatalogProduct(String id, String brand, String name, String category, List<Active> actives,
-                                 String ingredients, String imageUrl, String sourceUrl) {
+                                 String ingredients, String imageUrl, String sourceUrl, boolean imported) {
     }
 
     /** An OTC drug active ingredient, listed on the label separately from the other ingredients. */
@@ -125,7 +126,10 @@ public final class CatalogCsvReader {
             while (it.hasNext()) {
                 Map<String, String> row = it.next();
                 if (!headerChecked) {
-                    if (!row.keySet().containsAll(expected)) {
+                    // Check the header line itself: a row can omit trailing empty values.
+                    List<String> header = new ArrayList<>();
+                    ((CsvSchema) it.getParser().getSchema()).forEach(column -> header.add(column.getName()));
+                    if (!header.containsAll(expected)) {
                         errors.add(file + ": header must contain " + String.join(",", expected));
                         return rows;
                     }
@@ -148,6 +152,15 @@ public final class CatalogCsvReader {
         String sourceUrl = required(where, row, "source_url");
         String imageUrl = optional(row, "image_url");
         List<Active> actives = actives(where, optional(row, "actives"));
+        String importText = optional(row, "import");
+        if (importText != null && !importText.equals("yes")) {
+            errors.add(where + ": import must be 'yes' or empty, not '" + importText + "'");
+        }
+        boolean imported = "yes".equals(importText);
+        if ("sunscreen".equals(category) && !imported && actives.isEmpty()) {
+            errors.add(where + ": a US sunscreen must list its UV filters in actives, e.g. 'Zinc Oxide 9%'"
+                    + " (or set import to 'yes')");
+        }
 
         if (id != null && !SLUG.matcher(id).matches()) {
             errors.add(where + ": id must be lowercase words joined by '-', e.g. cerave-hydrating-cleanser");
@@ -161,7 +174,7 @@ public final class CatalogCsvReader {
         checkUrl(where, "source_url", sourceUrl);
         checkUrl(where, "image_url", imageUrl);
         return errors.size() == before
-                ? new CatalogProduct(id, brand, name, category, actives, ingredients, imageUrl, sourceUrl)
+                ? new CatalogProduct(id, brand, name, category, actives, ingredients, imageUrl, sourceUrl, imported)
                 : null;
     }
 

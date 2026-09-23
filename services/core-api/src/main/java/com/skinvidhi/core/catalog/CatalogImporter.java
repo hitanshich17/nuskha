@@ -69,7 +69,7 @@ public class CatalogImporter {
             Map<String, Long> productIds = new HashMap<>();
             for (CatalogProduct p : catalog.products()) {
                 long id = productWriter.upsert(new ProductData(SOURCE, p.id(), p.brand(), p.name(), p.category(),
-                        p.ingredients(), p.imageUrl(), p.sourceUrl()));
+                        p.ingredients(), p.imageUrl(), p.sourceUrl(), p.imported()));
                 productWriter.replaceIngredients(id, ingredientIds.get(p.id()));
                 jdbc.update("DELETE FROM product_actives WHERE product_id = ?", id);
                 for (Active a : p.actives()) {

@@ -5,6 +5,8 @@ When done, delete the line here. Validate with `cd services/core-api && ./mvnw -
 
 Conventions: prices as `15.99`; size + unit as on the label (`ml`, `g`, `fl oz`, `oz`; liquids sold in "oz" count
 as `fl oz`); ingredients copied exactly; OTC active ingredients go in `actives` as `Name N%; Name N%`.
+US sunscreens must list their UV filters in `actives`; imported sunscreens (not FDA-approved) get `yes` in the
+last column, `import`.
 
 ## Cleansers
 

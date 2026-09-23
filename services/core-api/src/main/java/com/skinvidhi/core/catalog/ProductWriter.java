@@ -14,7 +14,7 @@ public class ProductWriter {
 
     /** A product as an importer found it. {@code sourceId} is unique within {@code source}. */
     public record ProductData(String source, String sourceId, String brand, String name, String category,
-                              String ingredientsRaw, String imageUrl, String sourceUrl) {
+                              String ingredientsRaw, String imageUrl, String sourceUrl, boolean imported) {
     }
 
     private final JdbcTemplate jdbc;
@@ -26,18 +26,20 @@ public class ProductWriter {
     /** Inserts the product, or updates it if (source, source_id) exists, and returns its id. */
     public long upsert(ProductData p) {
         return jdbc.queryForObject("""
-                INSERT INTO products (source, source_id, brand, name, category, ingredients_raw, image_url, source_url)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO products (source, source_id, brand, name, category, ingredients_raw, image_url, source_url,
+                                      imported)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT (source, source_id) DO UPDATE SET
                     brand = EXCLUDED.brand,
                     name = EXCLUDED.name,
                     category = EXCLUDED.category,
                     ingredients_raw = EXCLUDED.ingredients_raw,
                     image_url = EXCLUDED.image_url,
-                    source_url = EXCLUDED.source_url
+                    source_url = EXCLUDED.source_url,
+                    imported = EXCLUDED.imported
                 RETURNING id
                 """, Long.class, p.source(), p.sourceId(), p.brand(), p.name(), p.category(),
-                p.ingredientsRaw(), p.imageUrl(), p.sourceUrl());
+                p.ingredientsRaw(), p.imageUrl(), p.sourceUrl(), p.imported());
     }
 
     /** Replaces the product's ingredient list. Ids must be distinct and in label order. */

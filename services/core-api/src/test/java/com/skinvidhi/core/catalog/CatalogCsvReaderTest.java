@@ -18,7 +18,7 @@ import org.junit.jupiter.api.Test;
 class CatalogCsvReaderTest {
 
     private static final LocalDate TODAY = LocalDate.of(2026, 9, 23);
-    private static final String PRODUCTS_HEADER = "id,brand,name,category,actives,ingredients,image_url,source_url\n";
+    private static final String PRODUCTS_HEADER = "id,brand,name,category,actives,ingredients,image_url,source_url,import\n";
     private static final String OFFERS_HEADER = "product_id,retailer,price_usd,size,unit,url,checked_on\n";
     private static final String CLEANSER =
             "gentle-cleanser,Brand A,Gentle Cleanser,cleanser,,\"Aqua, Glycerin, Cetearyl Alcohol\",,https://brand-a.example/cleanser\n";
@@ -94,6 +94,25 @@ class CatalogCsvReaderTest {
     }
 
     @Test
+    void readsImportFlag() throws IOException {
+        Catalog catalog = read("""
+                korean-spf,Brand K,Sun Cream,sunscreen,,"Water, Glycerin",,https://k.example/sun,yes
+                """, "");
+
+        assertThat(catalog.products()).singleElement().extracting(CatalogProduct::imported).isEqualTo(true);
+    }
+
+    @Test
+    void usSunscreenNeedsActivesAndImportMustBeYes() {
+        assertThat(errors("""
+                us-spf,Brand U,Sun Lotion,sunscreen,,"Water, Glycerin",,https://u.example/sun,
+                other-spf,Brand U,Sun Gel,sunscreen,Zinc Oxide 9%,"Water, Glycerin",,https://u.example/gel,true
+                """, "")).containsExactly(
+                "products.csv:2: a US sunscreen must list its UV filters in actives, e.g. 'Zinc Oxide 9%' (or set import to 'yes')",
+                "products.csv:3: import must be 'yes' or empty, not 'true'");
+    }
+
+    @Test
     void rejectsActivesWithoutPercentage() {
         assertThat(errors("""
                 acne-wash,Brand B,Acne Wash,cleanser,Benzoyl Peroxide; Salicylic Acid 120%; Zinc Oxide 5%; zinc oxide 6%,"Water, Glycerin",,https://b.example/wash
@@ -125,6 +144,6 @@ class CatalogCsvReaderTest {
                 new StringReader("id,brand,name\nx,y,z\n"), new StringReader(OFFERS_HEADER), TODAY)).errors();
 
         assertThat(errors).containsExactly(
-                "products.csv: header must contain id,brand,name,category,actives,ingredients,image_url,source_url");
+                "products.csv: header must contain id,brand,name,category,actives,ingredients,image_url,source_url,import");
     }
 }
