@@ -69,9 +69,7 @@ last column, `import`.
 - [x] **SkinCeuticals C E Ferulic**: whole product (site blocks automated reading).
   Page: https://www.skinceuticals.com/skincare/vitamin-c-serums/c-e-ferulic-with-15-l-ascorbic-acid/S17.html
   id: `skinceuticals-c-e-ferulic`
-- [ ] **La Roche-Posay Effaclar Duo**: whole product (site blocks automated reading). OTC acne treatment:
-  put the benzoyl peroxide % in `actives`. id: `la-roche-posay-effaclar-duo`
-
+- [x] ~~**La Roche-Posay Effaclar Duo**~~: discontinued, dropped.
 ## Moisturizers
 
 - [ ] **CeraVe Moisturizing Cream**: price + size (the page's $14.99 sits next to a "16 oz + 1.89 oz" bundle, so unclear).
