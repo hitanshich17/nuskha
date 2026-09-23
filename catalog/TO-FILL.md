@@ -64,7 +64,7 @@ last column, `import`.
 - [ ] **Drunk Elephant A-Passioni Retinol Cream** (30 ml): price.
   Page: https://www.drunkelephant.com/collections/masks/a-passioni-retinol-cream-812343032392.html
 - [x] ~~**Sunday Riley Good Genes**~~: dropped (only a grouped, unordered ingredient list is published).
-- [ ] **Kiehl's Clearly Corrective Dark Spot Solution**: whole product (site blocks automated reading).
+- [x] **Kiehl's Clearly Corrective Dark Spot Solution** (now called Dark Spot Serum): whole product (site blocks automated reading).
   id: `kiehls-clearly-corrective-dark-spot-solution`
 - [ ] **SkinCeuticals C E Ferulic**: whole product (site blocks automated reading).
   Page: https://www.skinceuticals.com/skincare/vitamin-c-serums/c-e-ferulic-with-15-l-ascorbic-acid/S17.html
