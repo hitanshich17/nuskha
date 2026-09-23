@@ -55,7 +55,7 @@ last column, `import`.
 - [x] **Paula's Choice 2% BHA Liquid Exfoliant**: ingredients (loaded by JavaScript) and size. *(Done; size still unknown, optional.)* Price on the page: $37.
   Page: https://www.paulaschoice.com/skin-perfecting-2pct-bha-liquid-exfoliant/201-2010.html
   id: `paulas-choice-2-bha-liquid-exfoliant`
-- [ ] **Good Molecules Discoloration Correcting Serum**: ingredients (loaded by JavaScript). Then add this offer:
+- [x] **Good Molecules Discoloration Correcting Serum**: ingredients (loaded by JavaScript). Then add this offer:
   `good-molecules-discoloration-correcting-serum,brand,12.00,30,ml,https://www.goodmolecules.com/s/good-molecules-discoloration-correcting-serum-30ml,2026-09-23`
   Page: https://www.goodmolecules.com/s/good-molecules-discoloration-correcting-serum-30ml
   id: `good-molecules-discoloration-correcting-serum`
