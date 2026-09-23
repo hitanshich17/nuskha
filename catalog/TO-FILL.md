@@ -22,10 +22,6 @@ as `fl oz`); ingredients copied exactly; OTC active ingredients go in `actives` 
   Page: https://www.vanicream.com/product/vanicream-facial-cleanser
 - [ ] **Neutrogena Oil-Free Acne Wash**: price and size (the page doesn't include a price).
   Page: https://www.neutrogena.com/products/skincare/oil-free-acne-wash-with-salicylic-acid/6811719
-- [ ] **The Ordinary Squalane Cleanser**: ingredients (the page loads them with JavaScript, so open the
-  "Ingredients" section in your browser). Price already known: add the product row, then this offer:
-  `the-ordinary-squalane-cleanser,brand,10.50,50,ml,https://theordinary.com/en-us/squalane-face-cleanser-100446.html,2026-09-23`
-  Page: https://theordinary.com/en-us/squalane-face-cleanser-100446.html
 - [ ] **Paula's Choice CLEAR Pore Normalizing Cleanser**: ingredients and size (loaded by JavaScript).
   Price on the page: $28. It contains 0.5% salicylic acid; if the label lists it as an active, put it in `actives`.
   Page: https://www.paulaschoice.com/clear-pore-normalizing-cleanser/600.html

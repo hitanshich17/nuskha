@@ -22,6 +22,19 @@ AHAs, irritants, sensitivities). AI/ML is used where it solves a real problem:
   on an evaluation set (only once there is enough feedback)
 - an LLM explains *why* a routine was chosen, from the rules' output
 
+## Product decisions (made by the author; follow them)
+- Routine = "Core 4": AM cleanser, moisturizer, sunscreen; PM cleanser, treatment, moisturizer.
+- Treatment is one category; products are told apart by their actives (retinoid, AHA/BHA, vitamin C, ...).
+- Vitamin C treatments go in the PM routine only.
+- Products outside the four routine categories stay in the catalog but are never picked for routines.
+- A product can have several offers (retailer + size + price); the app shows the cheapest and compares.
+- Budget: filter on the upfront total, and also show an estimated monthly cost.
+- Sizes: fl oz -> ml, oz -> g; liquids sold in "oz" count as fl oz; creams, balms and sticks keep oz.
+- OTC active ingredients (acne treatments, sunscreens) are stored separately with their percentage.
+- Curated catalog: ~25 products per category; the author approves each list. Claude reads ingredients
+  from brand pages; the author supplies prices Claude cannot read. Never bypass bot protection or read
+  retailer sites whose terms forbid automated access.
+
 ## Data
 Free sources only: Open Beauty Facts (imported, weak US coverage), public Shopify product data from
 brand stores (respect terms of service and robots.txt), and a hand-curated set of popular US
