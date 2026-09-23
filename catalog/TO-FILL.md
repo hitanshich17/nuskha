@@ -14,3 +14,15 @@ as `fl oz`); ingredients copied exactly; OTC active ingredients go in `actives` 
 - [ ] **La Roche-Posay Toleriane Hydrating Gentle Cleanser**: whole product (row in products.csv and offers.csv).
   Page: https://www.laroche-posay.us/our-products/face/face-wash/toleriane-hydrating-gentle-facial-cleanser-tolerianehydratinggentlefacialcleanser.html
   id: `la-roche-posay-toleriane-hydrating-gentle-cleanser`
+- [ ] **La Roche-Posay Effaclar Medicated Gel Cleanser**: whole product (site blocks automated reading).
+  It's an OTC acne product, so put the salicylic acid % in `actives`.
+  Search: https://www.laroche-posay.us/our-products/face/face-wash
+  id: `la-roche-posay-effaclar-medicated-gel-cleanser`
+- [ ] **Vanicream Gentle Facial Cleanser**: price and size (not sold on the brand site).
+  Page: https://www.vanicream.com/product/vanicream-facial-cleanser
+- [ ] **Neutrogena Oil-Free Acne Wash**: price and size (the page doesn't include a price).
+  Page: https://www.neutrogena.com/products/skincare/oil-free-acne-wash-with-salicylic-acid/6811719
+- [ ] **The Ordinary Squalane Cleanser**: ingredients (the page loads them with JavaScript, so open the
+  "Ingredients" section in your browser). Price already known: add the product row, then this offer:
+  `the-ordinary-squalane-cleanser,brand,10.50,50,ml,https://theordinary.com/en-us/squalane-face-cleanser-100446.html,2026-09-23`
+  Page: https://theordinary.com/en-us/squalane-face-cleanser-100446.html
