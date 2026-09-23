@@ -25,7 +25,7 @@ AHAs, irritants, sensitivities). AI/ML is used where it solves a real problem:
 ## Product decisions (made by the author; follow them)
 - Routine = "Core 4": AM cleanser, moisturizer, sunscreen; PM cleanser, treatment, moisturizer.
 - Treatment is one category; products are told apart by their actives (retinoid, AHA/BHA, vitamin C, ...).
-- Vitamin C treatments go in the PM routine only.
+- Vitamin C treatments go in the PM routine only (the rule is for vitamin C treatments; moisturizers with some vitamin C are used AM and PM).
 - Moisturizers with built-in SPF are left out of the catalog; moisturizer and sunscreen stay separate steps.
 - Products outside the four routine categories stay in the catalog but are never picked for routines.
 - A product can have several offers (retailer + size + price); the app shows the cheapest and compares.
