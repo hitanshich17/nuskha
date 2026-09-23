@@ -36,3 +36,7 @@ as `fl oz`); ingredients copied exactly; OTC active ingredients go in `actives` 
 - [ ] **Kiehl's Ultra Facial Cleanser**: whole product (site blocks automated reading).
   Page: https://www.kiehls.com/skincare/face-cleansers-scrubs/ultra-facial-cleanser/714.html
   id: `kiehls-ultra-facial-cleanser`
+- [ ] **Senka Perfect Whip**: whole product, from the US Walmart listing (no official US store; Japanese
+  imports can have a different formula, so use the US listing).
+  Page: https://www.walmart.com/ip/Shiseido-Senka-Perfect-Whip-Cream-Face-Wash-4-23-oz/908991070
+  id: `senka-perfect-whip`, retailer: `walmart`
