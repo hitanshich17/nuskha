@@ -111,3 +111,25 @@ last column, `import`.
 - [ ] **Youth To The People Superfood Air-Whip Moisture Cream**: whole product (blocked).
   id: `youth-to-the-people-superfood-air-whip-moisture-cream`
 - [ ] **Belif The True Cream Aqua Bomb**: whole product (no readable official store). id: `belif-the-true-cream-aqua-bomb`
+
+## Sunscreens
+
+- [ ] **Round Lab Birch Moisturizing Sunscreen UVLock SPF 45** (US): the actives percentages. The page names the
+  filters (avobenzone, homosalate, octisalate) without %; check the Drug Facts on the page/box. Row ready except actives:
+  id `round-lab-birch-moisturizing-sunscreen-uvlock-spf45`, price $24.99,
+  page https://roundlab.com/products/birch-moisturizing-uv-sunscreen. Ingredients (copy as-is):
+  "WATER, ACRYLATES COPOLYMER, CAPRYLYL METHICONE, SPARASSIS CRISPA EXTRACT, TOCOPHEROL (VITAMIN E), NIACINAMIDE,POLYGLYCERYL-3 DISTEARATE, AVOBENZONE, HOMOSALATE, CALCIUM ALUMINUM BOROSILICATE, 1,2-HEXANEDIOL, OCTISALATE, BUTYLOCTYL SALICYLATE, POLY C10-30 ALKYL ACRYLATE, CETEARYL ALCOHOL, TROMETHAMINE, GLYCERYL STEARATE CITRATE, BETULA PLATYPHYLLA JAPONICA JUICE, ARTEMISIA ANNUA EXTRACT, ANTHEMIS NOBILIS FLOWER OIL, ACRYLATES/C10-30 ALKYL ACRYLATE CROSSPOLYMER, GLYCERIN, BUTYLENE GLYCOL, SODIUM HYALURONATE, CARBOMER, ETHYLHEXYLGLYCERIN, HYALURONIC ACID, GLYCERYL GLUCOSIDE, PROPANEDIOL, PINUS SYLVESTRIS LEAF OIL, ALLANTOIN, PORTULACA OLERACEA EXTRACT, SODIUM STEAROYL GLUTAMATE, GLYCERYL POLYMETHACRYLATE, TRIETHOXYCAPRYLYLSILANE, PENTYLENE GLYCOL, METHYLPROPANEDIOL, BIOSACCHARIDE GUM-1, BENZOTRIAZOLYL DODECYL P-CRESOL, DIETHYLHEXYL 2,6-NAPHTHALATE, POLYMETHYLSILSESQUIOXANE"
+- [ ] **Round Lab Birch Mild-Up Sunscreen UVLock SPF 50** (US, mineral): zinc oxide %. Row ready except actives:
+  id `round-lab-birch-mild-up-sunscreen-uvlock-spf50`, price $24.99,
+  page https://roundlab.com/products/birch-juice-mild-up-uvlock-sunscreen. Ingredients (copy as-is):
+  "WATER, ZINC OXIDE, ISODODECANE, CAPRYLYL METHICONE, POLYGLYCERY-3 POLYDIMETHYLSILFOXYETHYL DIMETHICONE, METHYL TRIMETHICONE, DISTEARDIMONIUM HECTORITE, SODIUM HYALURONATE, HYALURONIC ACID, BETULA PLATYPHYLLA JAPONICA JUICE, ARTEMISIA ANNUA EXTRACT, METHYL METHACRYLATE CROSSPOLYMER, GLYCERIN, BUTYLENE GLYCOL, PROPANEDIOL, GLYCERYL GLUCOSIDE, MAGNESIUM SULFATE, TRIETHOXYCAPRYLYLSILANE, ANTHEMIS NOBILIS FLOWER OIL, PINUS SYLVESTRIS LEAF OIL, SACCHAROMYCES FERMENT FILTRATE, ETHYLHEXYLGLYCERIN, CAPRYLYL GLYCOL, GLYCERYL CAPRYLATE, BUTYLOCTYL SALICYLATE, POLYMETHYLSILSESQUIOXANE, CYCLOHEXASILOXANE, 1,2-HEXANEDIOL, LAURYL POLYGLYCERYL-3 POLYDIMETHYILSOXYETHYL DIMETHICONE, CRYPTOMERIA JAPONICA LEAF EXTRACT, TOCOPHEROL (VITAMIN E), ASCORBIC ACID (VITAMIN C)"
+- [ ] **SKIN1004 Hyalu-Cica Water-Fit Sun Serum UV** (US version): inactive ingredients (not in the page).
+  Actives known: `Avobenzone 2.7%; Homosalate 13.6%; Octisalate 4.5%; Octocrylene 9%`. Price known: $15.20 / 50 ml.
+  Page: https://www.skin1004.com/products/hyalu-cica-water-fit-sun-serum-uv
+  id: `skin1004-hyalu-cica-water-fit-sun-serum-uv`
+- [ ] **Aestura Derma UV365 Barrier Hydro Mineral Sunscreen** (import): US price + size (int. store shows $0).
+- [ ] **Beauty of Joseon Relief Sun: Rice + Probiotics** (import): whole product; the US store page is 404, so check
+  Olive Young US / Amazon. Set `import` to `yes`. id: `beauty-of-joseon-relief-sun`
+- [ ] **SKIN1004 Madagascar Centella Air-Fit Suncream Plus** (import): whole product (US store page is 404).
+  id: `skin1004-centella-air-fit-suncream-plus`
+- [ ] **Torriden DIVE-IN Mild Sun Cream** (import): whole product (not on Torriden's US store). id: `torriden-dive-in-mild-suncream`
