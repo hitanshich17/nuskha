@@ -95,3 +95,17 @@ as `fl oz`); ingredients copied exactly; OTC active ingredients go in `actives` 
   id: `illiyoon-ceramide-ato-concentrate-cream`
 - [ ] **Dr.Althea 345 Relief Cream**: whole product (no readable official store).
   id: `dr-althea-345-relief-cream`
+- [ ] **Clinique Moisture Surge 100H**: price + size (the page's $89 is the default variant, possibly the jumbo).
+  Page: https://www.clinique.com/products/moisture-surge-100h-auto-replenishing-hydrator
+- [ ] **Drunk Elephant Protini Polypeptide Cream** (50 ml): price.
+  Page: https://www.drunkelephant.com/protini-polypeptide-firming-refillable-moisturizer-856556004739.html
+- [ ] **BYOMA Moisturising Gel Cream**: ingredients (not in the page). Price known; after the product row
+  (id `byoma-moisturizing-gel-cream`), add: `byoma-moisturizing-gel-cream,brand,14.99,,,https://byoma.com/products/moisturizing-gel-cream,2026-09-23`
+- [ ] **La Roche-Posay Toleriane Double Repair Face Moisturizer** (the version without SPF): whole product (blocked).
+  id: `la-roche-posay-toleriane-double-repair-moisturizer`
+- [ ] **Paula's Choice CLEAR Oil-Free Moisturizer**: whole product (ingredients loaded by JavaScript).
+  id: `paulas-choice-clear-oil-free-moisturizer`
+- [ ] **Kiehl's Ultra Facial Cream**: whole product (blocked). id: `kiehls-ultra-facial-cream`
+- [ ] **Youth To The People Superfood Air-Whip Moisture Cream**: whole product (blocked).
+  id: `youth-to-the-people-superfood-air-whip-moisture-cream`
+- [ ] **Belif The True Cream Aqua Bomb**: whole product (no readable official store). id: `belif-the-true-cream-aqua-bomb`
