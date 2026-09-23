@@ -8,7 +8,7 @@
 # Data: Open Beauty Facts (https://world.openbeautyfacts.org), Open Database License (ODbL).
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+source "$(dirname "$0")/db-env.sh"
 URL="https://static.openbeautyfacts.org/data/openbeautyfacts-products.jsonl.gz"
 DUMP="$ROOT/data/openbeautyfacts-products.jsonl.gz"
 
@@ -18,14 +18,6 @@ if [[ ! -f "$DUMP" || "${1:-}" == "--refresh" ]]; then
   curl -fL --progress-bar -o "$DUMP.part" "$URL"
   mv "$DUMP.part" "$DUMP"
 fi
-
-# Use the same credentials as docker compose (.env), unless DB_* are already set.
-if [[ -f "$ROOT/.env" ]]; then
-  set -a; source "$ROOT/.env"; set +a
-fi
-export DB_URL="${DB_URL:-jdbc:postgresql://localhost:5432/${POSTGRES_DB:-skinvidhi}}"
-export DB_USER="${DB_USER:-${POSTGRES_USER:-skinvidhi}}"
-export DB_PASSWORD="${DB_PASSWORD:-${POSTGRES_PASSWORD:-skinvidhi_dev_password}}"
 
 cd "$ROOT/services/core-api"
 ./mvnw -q spring-boot:run \

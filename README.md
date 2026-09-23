@@ -52,6 +52,14 @@ docker compose up -d postgres
 scripts/import-obf.sh            # downloads the dump once (~100 MB) into data/
 ```
 
+### Curated catalog
+
+The products routines are built from live in `catalog/products.csv` (one row per product, with its full ingredient list and the page it came from) and `catalog/offers.csv` (one row per retailer and size, with price and link). Sizes in fl oz / oz are converted to ml / g.
+
+```bash
+scripts/import-catalog.sh        # rejects the whole import, listing every problem, if any row is invalid
+```
+
 ## Project layout
 
 ```
@@ -59,6 +67,7 @@ services/core-api/     Spring Boot service (schema migrations in src/main/resour
 services/ai-service/   FastAPI service
 infra/localstack/      Creates the local S3 bucket and SQS queues
 infra/terraform/       AWS deployment (coming later)
+catalog/               Curated products and offers (CSV)
 scripts/               Data import scripts
 .github/workflows/     CI: Java tests, Python tests, Docker builds
 ```

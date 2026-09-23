@@ -1,0 +1,106 @@
+package com.skinvidhi.core.catalog;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowableOfType;
+
+import com.skinvidhi.core.catalog.CatalogCsvReader.Catalog;
+import com.skinvidhi.core.catalog.CatalogCsvReader.CatalogOffer;
+import com.skinvidhi.core.catalog.CatalogCsvReader.InvalidCatalogException;
+import java.io.IOException;
+import java.io.StringReader;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.List;
+import org.junit.jupiter.api.Test;
+
+class CatalogCsvReaderTest {
+
+    private static final LocalDate TODAY = LocalDate.of(2026, 9, 23);
+    private static final String PRODUCTS_HEADER = "id,brand,name,category,ingredients,image_url,source_url\n";
+    private static final String OFFERS_HEADER = "product_id,retailer,price_usd,size,unit,url,checked_on\n";
+    private static final String CLEANSER =
+            "gentle-cleanser,Brand A,Gentle Cleanser,cleanser,\"Aqua, Glycerin, Cetearyl Alcohol\",,https://brand-a.example/cleanser\n";
+
+    static Catalog read(String products, String offers) throws IOException {
+        return CatalogCsvReader.read(new StringReader(PRODUCTS_HEADER + products),
+                new StringReader(OFFERS_HEADER + offers), TODAY);
+    }
+
+    private static List<String> errors(String products, String offers) {
+        return catchThrowableOfType(InvalidCatalogException.class, () -> read(products, offers)).errors();
+    }
+
+    @Test
+    void readsValidCatalog() throws IOException {
+        Catalog catalog = read(CLEANSER, """
+                gentle-cleanser,target,15.99,16,fl oz,https://target.example/p/1,2026-09-20
+                gentle-cleanser,brand,18,,,https://brand-a.example/cleanser,2026-09-23
+                """);
+
+        assertThat(catalog.products()).singleElement().satisfies(p -> {
+            assertThat(p.id()).isEqualTo("gentle-cleanser");
+            assertThat(p.ingredients()).isEqualTo("Aqua, Glycerin, Cetearyl Alcohol");
+            assertThat(p.imageUrl()).isNull();
+        });
+        assertThat(catalog.offers()).containsExactly(
+                new CatalogOffer("gentle-cleanser", "target", 1599, new Size(new BigDecimal("473.18"), "ml"),
+                        "https://target.example/p/1", LocalDate.of(2026, 9, 20)),
+                new CatalogOffer("gentle-cleanser", "brand", 1800, null,
+                        "https://brand-a.example/cleanser", TODAY));
+    }
+
+    @Test
+    void reportsEveryProductProblemWithItsLine() {
+        assertThat(errors("""
+                Bad Id,Brand,Name,cleanser,"Aqua, Glycerin",,https://x.example/a
+                ok-id,,Name,toner,"Aqua",,not-a-link
+                ok-id-2,Brand,Name,serum,,,https://x.example/b
+                """, "")).containsExactlyInAnyOrder(
+                "products.csv:2: id must be lowercase words joined by '-', e.g. cerave-hydrating-cleanser",
+                "products.csv:3: brand is empty",
+                "products.csv:3: category must be one of cleanser, moisturizer, sunscreen, treatment",
+                "products.csv:3: source_url must be a web link starting with https://",
+                "products.csv:4: ingredients is empty",
+                "products.csv:4: category must be one of cleanser, moisturizer, sunscreen, treatment");
+    }
+
+    @Test
+    void reportsEveryOfferProblemWithItsLine() {
+        assertThat(errors(CLEANSER, """
+                unknown-product,target,15.99,16,fl oz,https://t.example/1,2026-09-20
+                gentle-cleanser,Target,$15.99,16,,https://t.example/1,2026-09-20
+                gentle-cleanser,ulta,12.5,2,cups,https://u.example/1,2027-01-01
+                """)).containsExactlyInAnyOrder(
+                "offers.csv:2: product_id 'unknown-product' is not in products.csv",
+                "offers.csv:3: retailer must be lowercase, e.g. target, ulta, brand",
+                "offers.csv:3: price_usd must be a positive amount like 15.99, not '$15.99'",
+                "offers.csv:3: size and unit must be filled in together",
+                "offers.csv:4: unit must be one of ml, g, fl oz, oz: 'cups'",
+                "offers.csv:4: checked_on is in the future: 2027-01-01");
+    }
+
+    @Test
+    void lineNumbersHoldWithoutTrailingNewline() {
+        assertThat(errors(CLEANSER, "gentle-cleanser,target,abc,,,https://t.example/1,2026-09-20"))
+                .containsExactly("offers.csv:2: price_usd must be a positive amount like 15.99, not 'abc'");
+    }
+
+    @Test
+    void rejectsDuplicates() {
+        assertThat(errors(CLEANSER + CLEANSER, """
+                gentle-cleanser,target,15.99,16,fl oz,https://t.example/1,2026-09-20
+                gentle-cleanser,target,14.99,16,fl oz,https://t.example/1,2026-09-21
+                """)).containsExactly(
+                "products.csv:3: duplicate id 'gentle-cleanser'",
+                "offers.csv:3: duplicate offer for 'gentle-cleanser' at target in this size");
+    }
+
+    @Test
+    void rejectsMissingColumns() {
+        List<String> errors = catchThrowableOfType(InvalidCatalogException.class, () -> CatalogCsvReader.read(
+                new StringReader("id,brand,name\nx,y,z\n"), new StringReader(OFFERS_HEADER), TODAY)).errors();
+
+        assertThat(errors).containsExactly(
+                "products.csv: header must contain id,brand,name,category,ingredients,image_url,source_url");
+    }
+}

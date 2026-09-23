@@ -1,6 +1,8 @@
 package com.skinvidhi.core.importer.obf;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.skinvidhi.core.catalog.ProductWriter;
+import com.skinvidhi.core.catalog.ProductWriter.ProductData;
 import com.skinvidhi.core.ingredient.IngredientListParser;
 import com.skinvidhi.core.ingredient.IngredientResolver;
 import com.skinvidhi.core.ingredient.LabelIngredient;
@@ -11,7 +13,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,6 @@ import org.springframework.transaction.support.TransactionTemplate;
  *
  * <p>The file is streamed line by line, so the ~1 GB uncompressed dump never sits in memory.
  * Re-running is safe: products are upserted by barcode and their ingredient lists replaced.
- * Uses plain JDBC rather than JPA because this is a bulk load; there is no entity state to manage.
  */
 @Service
 public class ObfImporter {
@@ -35,6 +35,7 @@ public class ObfImporter {
     public enum Outcome { IMPORTED, NO_BARCODE, NO_NAME, NO_INGREDIENTS, UNPARSEABLE, FAILED }
 
     static final String SOURCE = "open_beauty_facts";
+    private static final String PRODUCT_PAGE = "https://world.openbeautyfacts.org/product/";
 
     private static final Logger log = LoggerFactory.getLogger(ObfImporter.class);
     private static final int MAX_LOGGED_FAILURES = 20;
@@ -42,11 +43,13 @@ public class ObfImporter {
     private final JdbcTemplate jdbc;
     private final TransactionTemplate tx;
     private final ObjectMapper mapper;
+    private final ProductWriter productWriter;
 
-    public ObfImporter(JdbcTemplate jdbc, TransactionTemplate tx, ObjectMapper mapper) {
+    public ObfImporter(JdbcTemplate jdbc, TransactionTemplate tx, ObjectMapper mapper, ProductWriter productWriter) {
         this.jdbc = jdbc;
         this.tx = tx;
         this.mapper = mapper;
+        this.productWriter = productWriter;
     }
 
     public ImportStats importFile(Path file) throws IOException {
@@ -109,31 +112,11 @@ public class ObfImporter {
         List<Long> ingredientIds = parsed.stream()
                 .flatMap(i -> resolver.resolve(i).stream()).distinct().toList();
 
-        tx.executeWithoutResult(status -> save(code, name, firstBrand(p.brands()),
-                ObfCategories.categorize(p.categoriesTags()), ingredientsText, ingredientIds));
+        ProductData product = new ProductData(SOURCE, code, firstBrand(p.brands()), name,
+                ObfCategories.categorize(p.categoriesTags()), ingredientsText, null, PRODUCT_PAGE + code);
+        tx.executeWithoutResult(status ->
+                productWriter.replaceIngredients(productWriter.upsert(product), ingredientIds));
         return Outcome.IMPORTED;
-    }
-
-    private void save(String code, String name, String brand, String category, String ingredientsText,
-                      List<Long> ingredientIds) {
-        Long productId = jdbc.queryForObject("""
-                INSERT INTO products (brand, name, category, source, source_id, ingredients_raw)
-                VALUES (?, ?, ?, ?, ?, ?)
-                ON CONFLICT (source, source_id) DO UPDATE SET
-                    brand = EXCLUDED.brand,
-                    name = EXCLUDED.name,
-                    category = EXCLUDED.category,
-                    ingredients_raw = EXCLUDED.ingredients_raw
-                RETURNING id
-                """, Long.class, brand, name, category, SOURCE, code, ingredientsText);
-
-        jdbc.update("DELETE FROM product_ingredients WHERE product_id = ?", productId);
-        List<Object[]> rows = new ArrayList<>();
-        for (int i = 0; i < ingredientIds.size(); i++) {
-            rows.add(new Object[] {productId, i + 1, ingredientIds.get(i)});
-        }
-        jdbc.batchUpdate("INSERT INTO product_ingredients (product_id, position, ingredient_id) VALUES (?, ?, ?)",
-                rows);
     }
 
     /** OBF can list several brands ("Johnson & Johnson, Neutrogena"); we keep the first. */
