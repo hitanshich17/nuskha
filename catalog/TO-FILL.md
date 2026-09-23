@@ -31,7 +31,7 @@ last column, `import`.
 - [ ] **Paula's Choice CALM Ultra-Gentle Cleanser**: ingredients and size (loaded by JavaScript). Price on the page: $28.
   Page: https://www.paulaschoice.com/calm-ultra-gentle-cleanser/9190.html
   id: `paulas-choice-calm-ultra-gentle-cleanser`
-- [ ] **Kiehl's Ultra Facial Cleanser**: whole product (site blocks automated reading).
+- [x] **Kiehl's Ultra Facial Cleanser**: whole product (site blocks automated reading).
   Page: https://www.kiehls.com/skincare/face-cleansers-scrubs/ultra-facial-cleanser/714.html
   id: `kiehls-ultra-facial-cleanser`
 - [ ] **Senka Perfect Whip**: whole product, from the US Walmart listing (no official US store; Japanese
