@@ -59,7 +59,7 @@ last column, `import`.
   `good-molecules-discoloration-correcting-serum,brand,12.00,30,ml,https://www.goodmolecules.com/s/good-molecules-discoloration-correcting-serum-30ml,2026-09-23`
   Page: https://www.goodmolecules.com/s/good-molecules-discoloration-correcting-serum-30ml
   id: `good-molecules-discoloration-correcting-serum`
-- [ ] **Drunk Elephant C-Firma Fresh Day Serum** (28 ml): price.
+- [x] **Drunk Elephant C-Firma Fresh Day Serum** (28 ml): price.
   Page: https://www.drunkelephant.com/collections/serums/c-firma-fresh-vitamin-c-day-serum-812343034358.html
 - [ ] **Drunk Elephant A-Passioni Retinol Cream** (30 ml): price.
   Page: https://www.drunkelephant.com/collections/masks/a-passioni-retinol-cream-812343032392.html
