@@ -41,7 +41,7 @@ last column, `import`.
 - [x] **Drunk Elephant Beste No. 9 Jelly Cleanser**: price + size. The page shows $18.00 without saying which
   size (possibly the travel size), so check it in the browser.
   Page: https://www.drunkelephant.com/beste-no.-9-jelly-cleanser-812343032415.html
-- [ ] **Fresh Soy Face Cleanser**: whole product (site blocks automated reading).
+- [x] **Fresh Soy Face Cleanser**: whole product (site blocks automated reading).
   Page: https://www.fresh.com/us/skincare/categories/cleansers/soy-face-cleanser-H00006238.html
   id: `fresh-soy-face-cleanser`
 - [ ] **Youth To The People Superfood Cleanser**: whole product (site blocks automated reading).
