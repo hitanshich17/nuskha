@@ -61,7 +61,7 @@ last column, `import`.
   id: `good-molecules-discoloration-correcting-serum`
 - [x] **Drunk Elephant C-Firma Fresh Day Serum** (28 ml): price.
   Page: https://www.drunkelephant.com/collections/serums/c-firma-fresh-vitamin-c-day-serum-812343034358.html
-- [ ] **Drunk Elephant A-Passioni Retinol Cream** (30 ml): price.
+- [x] **Drunk Elephant A-Passioni Retinol Cream** (30 ml): price.
   Page: https://www.drunkelephant.com/collections/masks/a-passioni-retinol-cream-812343032392.html
 - [x] ~~**Sunday Riley Good Genes**~~: dropped (only a grouped, unordered ingredient list is published).
 - [x] **Kiehl's Clearly Corrective Dark Spot Solution** (now called Dark Spot Serum): whole product (site blocks automated reading).
