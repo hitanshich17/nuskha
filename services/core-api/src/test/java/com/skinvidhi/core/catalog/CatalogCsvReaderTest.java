@@ -123,6 +123,20 @@ class CatalogCsvReaderTest {
     }
 
     @Test
+    void toleratesSpacesAroundValuesAndBlankLines() throws IOException {
+        Catalog catalog = read("""
+                spaced, Brand A , Spaced Cleanser, cleanser,, "Aqua, Glycerin" ,, https://a.example/p
+
+                """, "spaced, target, 9.99, 8, fl oz, https://t.example/p, 2026-09-20\n\n");
+
+        assertThat(catalog.products()).singleElement().satisfies(p -> {
+            assertThat(p.brand()).isEqualTo("Brand A");
+            assertThat(p.ingredients()).isEqualTo("Aqua, Glycerin");
+        });
+        assertThat(catalog.offers()).singleElement().extracting(CatalogOffer::priceCents).isEqualTo(999);
+    }
+
+    @Test
     void lineNumbersHoldWithoutTrailingNewline() {
         assertThat(errors(CLEANSER, "gentle-cleanser,target,abc,,,https://t.example/1,2026-09-20"))
                 .containsExactly("offers.csv:2: price_usd must be a positive amount like 15.99, not 'abc'");

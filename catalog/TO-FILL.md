@@ -10,21 +10,21 @@ last column, `import`.
 
 ## Cleansers
 
-- [ ] **Cetaphil Gentle Skin Cleanser**: price and size (add a row to offers.csv).
+- [x] **Cetaphil Gentle Skin Cleanser**: price and size (add a row to offers.csv).
   Page: https://www.cetaphil.com/us/products/product-categories/all-cleansers/cetaphil-gentle-skin-cleanser/302990110227.html
   (no price on the brand site, so use a retailer and set `retailer` to e.g. `target`)
-- [ ] **La Roche-Posay Toleriane Hydrating Gentle Cleanser**: whole product (row in products.csv and offers.csv).
+- [x] **La Roche-Posay Toleriane Hydrating Gentle Cleanser**: whole product (row in products.csv and offers.csv).
   Page: https://www.laroche-posay.us/our-products/face/face-wash/toleriane-hydrating-gentle-facial-cleanser-tolerianehydratinggentlefacialcleanser.html
   id: `la-roche-posay-toleriane-hydrating-gentle-cleanser`
 - [ ] **La Roche-Posay Effaclar Medicated Gel Cleanser**: whole product (site blocks automated reading).
   It's an OTC acne product, so put the salicylic acid % in `actives`.
   Search: https://www.laroche-posay.us/our-products/face/face-wash
   id: `la-roche-posay-effaclar-medicated-gel-cleanser`
-- [ ] **Vanicream Gentle Facial Cleanser**: price and size (not sold on the brand site).
+- [x] **Vanicream Gentle Facial Cleanser**: price and size (not sold on the brand site).
   Page: https://www.vanicream.com/product/vanicream-facial-cleanser
-- [ ] **Neutrogena Oil-Free Acne Wash**: price and size (the page doesn't include a price).
+- [x] **Neutrogena Oil-Free Acne Wash**: price and size (the page doesn't include a price).
   Page: https://www.neutrogena.com/products/skincare/oil-free-acne-wash-with-salicylic-acid/6811719
-- [ ] **Paula's Choice CLEAR Pore Normalizing Cleanser**: ingredients and size (loaded by JavaScript).
+- [x] **Paula's Choice CLEAR Pore Normalizing Cleanser**: ingredients and size (loaded by JavaScript).
   Price on the page: $28. It contains 0.5% salicylic acid; if the label lists it as an active, put it in `actives`.
   Page: https://www.paulaschoice.com/clear-pore-normalizing-cleanser/600.html
   id: `paulas-choice-clear-pore-normalizing-cleanser`

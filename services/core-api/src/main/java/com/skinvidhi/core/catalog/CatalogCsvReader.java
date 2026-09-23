@@ -2,6 +2,7 @@ package com.skinvidhi.core.catalog;
 
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvParser;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import com.skinvidhi.core.ingredient.IngredientListParser;
 import java.io.IOException;
@@ -118,7 +119,11 @@ public final class CatalogCsvReader {
     private Map<String, Map<String, String>> rows(String file, Reader reader, List<String> expected)
             throws IOException {
         Map<String, Map<String, String>> rows = new LinkedHashMap<>();
-        CsvMapper mapper = new CsvMapper();
+        // Forgiving for hand edits: spaces around values (and before quotes) and blank lines are ignored.
+        CsvMapper mapper = CsvMapper.builder()
+                .enable(CsvParser.Feature.TRIM_SPACES)
+                .enable(CsvParser.Feature.SKIP_EMPTY_LINES)
+                .build();
         try (MappingIterator<Map<String, String>> it = mapper.readerForMapOf(String.class)
                 .with(CsvSchema.emptySchema().withHeader())
                 .readValues(reader)) {
