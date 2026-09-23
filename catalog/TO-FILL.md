@@ -26,3 +26,8 @@ as `fl oz`); ingredients copied exactly; OTC active ingredients go in `actives` 
   "Ingredients" section in your browser). Price already known: add the product row, then this offer:
   `the-ordinary-squalane-cleanser,brand,10.50,50,ml,https://theordinary.com/en-us/squalane-face-cleanser-100446.html,2026-09-23`
   Page: https://theordinary.com/en-us/squalane-face-cleanser-100446.html
+- [ ] **Paula's Choice CLEAR Pore Normalizing Cleanser**: ingredients and size (loaded by JavaScript).
+  Price on the page: $28. It contains 0.5% salicylic acid; if the label lists it as an active, put it in `actives`.
+  Page: https://www.paulaschoice.com/clear-pore-normalizing-cleanser/600.html
+  id: `paulas-choice-clear-pore-normalizing-cleanser`
+- [ ] **Paula's Choice CALM cleanser**: whichever version we pick (see chat); ingredients and size.
