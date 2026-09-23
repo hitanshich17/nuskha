@@ -28,7 +28,7 @@ last column, `import`.
   Price on the page: $28. It contains 0.5% salicylic acid; if the label lists it as an active, put it in `actives`.
   Page: https://www.paulaschoice.com/clear-pore-normalizing-cleanser/600.html
   id: `paulas-choice-clear-pore-normalizing-cleanser`
-- [ ] **Paula's Choice CALM Ultra-Gentle Cleanser**: ingredients and size (loaded by JavaScript). Price on the page: $28.
+- [x] **Paula's Choice CALM Ultra-Gentle Cleanser**: ingredients and size (loaded by JavaScript). Price on the page: $28.
   Page: https://www.paulaschoice.com/calm-ultra-gentle-cleanser/9190.html
   id: `paulas-choice-calm-ultra-gentle-cleanser`
 - [x] **Kiehl's Ultra Facial Cleanser**: whole product (site blocks automated reading).
