@@ -78,3 +78,14 @@ as `fl oz`); ingredients copied exactly; OTC active ingredients go in `actives` 
   id: `skinceuticals-c-e-ferulic`
 - [ ] **La Roche-Posay Effaclar Duo**: whole product (site blocks automated reading). OTC acne treatment:
   put the benzoyl peroxide % in `actives`. id: `la-roche-posay-effaclar-duo`
+
+## Moisturizers
+
+- [ ] **CeraVe Moisturizing Cream**: price + size (the page's $14.99 sits next to a "16 oz + 1.89 oz" bundle, so unclear).
+  Page: https://www.cerave.com/skincare/moisturizers/moisturizing-cream
+- [ ] **Cetaphil Moisturizing Cream**: price + size.
+  Page: https://www.cetaphil.com/us/products/product-categories/all-moisturizers/moisturizing-cream/302993917564.html
+- [ ] **Vanicream Daily Facial Moisturizer**: price + size.
+  Page: https://www.vanicream.com/product/vanicream-daily-facial-moisturizer
+- [ ] **Neutrogena Hydro Boost Water Gel**: price + size.
+  Page: https://www.neutrogena.com/products/skincare/neutrogena-hydro-boost-water-gel-with-hyaluronic-acid/6811047
