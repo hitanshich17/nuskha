@@ -66,7 +66,7 @@ last column, `import`.
 - [x] ~~**Sunday Riley Good Genes**~~: dropped (only a grouped, unordered ingredient list is published).
 - [x] **Kiehl's Clearly Corrective Dark Spot Solution** (now called Dark Spot Serum): whole product (site blocks automated reading).
   id: `kiehls-clearly-corrective-dark-spot-solution`
-- [ ] **SkinCeuticals C E Ferulic**: whole product (site blocks automated reading).
+- [x] **SkinCeuticals C E Ferulic**: whole product (site blocks automated reading).
   Page: https://www.skinceuticals.com/skincare/vitamin-c-serums/c-e-ferulic-with-15-l-ascorbic-acid/S17.html
   id: `skinceuticals-c-e-ferulic`
 - [ ] **La Roche-Posay Effaclar Duo**: whole product (site blocks automated reading). OTC acne treatment:
