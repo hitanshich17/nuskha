@@ -63,13 +63,7 @@ last column, `import`.
   Page: https://www.drunkelephant.com/collections/serums/c-firma-fresh-vitamin-c-day-serum-812343034358.html
 - [ ] **Drunk Elephant A-Passioni Retinol Cream** (30 ml): price.
   Page: https://www.drunkelephant.com/collections/masks/a-passioni-retinol-cream-812343032392.html
-- [ ] **Sunday Riley Good Genes**: ingredients (loaded by JavaScript). Prices are known; after adding the product
-  row (id `sunday-riley-good-genes`), add these offers:
-  `sunday-riley-good-genes,brand,50.00,15,ml,https://sundayriley.com/products/good-genes-lactic-acid-treatment,2026-09-23`
-  `sunday-riley-good-genes,brand,85.00,30,ml,https://sundayriley.com/products/good-genes-lactic-acid-treatment,2026-09-23`
-  `sunday-riley-good-genes,brand,122.00,50,ml,https://sundayriley.com/products/good-genes-lactic-acid-treatment,2026-09-23`
-  `sunday-riley-good-genes,brand,205.00,100,ml,https://sundayriley.com/products/good-genes-lactic-acid-treatment,2026-09-23`
-  Page: https://sundayriley.com/products/good-genes-lactic-acid-treatment
+- [x] ~~**Sunday Riley Good Genes**~~: dropped (only a grouped, unordered ingredient list is published).
 - [ ] **Kiehl's Clearly Corrective Dark Spot Solution**: whole product (site blocks automated reading).
   id: `kiehls-clearly-corrective-dark-spot-solution`
 - [ ] **SkinCeuticals C E Ferulic**: whole product (site blocks automated reading).
