@@ -133,3 +133,17 @@ last column, `import`.
 - [ ] **SKIN1004 Madagascar Centella Air-Fit Suncream Plus** (import): whole product (US store page is 404).
   id: `skin1004-centella-air-fit-suncream-plus`
 - [ ] **Torriden DIVE-IN Mild Sun Cream** (import): whole product (not on Torriden's US store). id: `torriden-dive-in-mild-suncream`
+- [ ] **EltaMD UV Daily SPF 40**: price + size. Page: https://eltamd.com/products/uv-daily-broad-spectrum-spf-40
+- [ ] **Supergoop! Unseen Sunscreen SPF 50**: inactive ingredients (not in the page).
+  Actives known: `Avobenzone 3%; Homosalate 7%; Octisalate 5%; Octocrylene 9%`. id: `supergoop-unseen-sunscreen-spf50`.
+  Offers ready: `supergoop-unseen-sunscreen-spf50,brand,19.00,0.68,fl oz,https://supergoop.com/products/unseen-sunscreen-spf-50,2026-09-23`,
+  `...,brand,38.00,1.7,fl oz,...`, `...,brand,48.00,2.5,fl oz,...` (same link and date)
+- [ ] **Supergoop! Mineral Mattescreen SPF 40** (untinted): inactive ingredients (not in the page).
+  Actives known: `Titanium Dioxide 1.33%; Zinc Oxide 17.42%`. id: `supergoop-mineral-mattescreen-spf40`.
+  Offer ready: `supergoop-mineral-mattescreen-spf40,brand,40.00,1.5,fl oz,https://supergoop.com/products/smooth-and-poreless-mattescreen,2026-09-23`
+- [ ] **d'Alba Waterfull Essence Sunscreen SPF 50+**: check the ingredients. The brand page's list has no UV filters
+  at all, so it may be incomplete. $16 on https://dalba.com/products/dalba-waterfull-essence-sunscreen-spf50
+  If it's the Korean formula, set `import` to `yes`. id: `dalba-waterfull-essence-sunscreen`
+- [ ] **Black Girl Sunscreen SPF 30**: whole product (store not readable). id: `black-girl-sunscreen-spf30`
+- [ ] **Unsun Mineral Tinted Face Sunscreen SPF 30**: whole product (store not readable). id: `unsun-mineral-tinted-spf30`
+- [ ] **Isntree Hyaluronic Acid Watery Sun Gel** (import): whole product. id: `isntree-hyaluronic-acid-watery-sun-gel`
