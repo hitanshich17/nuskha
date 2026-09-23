@@ -16,6 +16,15 @@ class ObfCategoriesTest {
     }
 
     @Test
+    void routineCategoriesAreFaceProductsOnly() {
+        assertThat(ObfCategories.categorize(List.of("en:face", "en:serums"))).isEqualTo("treatment");
+        assertThat(ObfCategories.categorize(List.of("en:body", "en:body-creams"))).isEqualTo("body-care");
+        assertThat(ObfCategories.categorize(List.of("en:hand-creams"))).isEqualTo("body-care");
+        assertThat(ObfCategories.categorize(List.of("en:face-makeup", "en:bb-creams"))).isEqualTo("makeup");
+        assertThat(ObfCategories.categorize(List.of("en:night-creams"))).isEqualTo("moisturizer");
+    }
+
+    @Test
     void specificCategoryBeatsGenericOne() {
         // A day cream with SPF is chosen for its sun protection
         assertThat(ObfCategories.categorize(List.of("en:facial-creams", "en:day-creams", "en:in-sun-protections")))

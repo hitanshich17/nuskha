@@ -5,7 +5,10 @@ import java.util.Map;
 
 /**
  * Maps Open Beauty Facts category tags ("en:facial-creams", "en:in-sun-protections", ...) to Nuskha's
- * small set of product categories. Replacement matching compares products within a category.
+ * small set of product categories.
+ *
+ * <p>Routines use four face categories: cleanser, treatment, moisturizer, sunscreen. Every other
+ * category is kept in the catalog but never picked for a routine.
  */
 public final class ObfCategories {
 
@@ -27,10 +30,11 @@ public final class ObfCategories {
             Map.entry("soap", List.of("soap")),
             Map.entry("face-mask", List.of("face-mask")),
             Map.entry("exfoliant", List.of("scrub")),
-            Map.entry("serum", List.of("serum")),
+            Map.entry("treatment", List.of("serum")),
             Map.entry("toner", List.of("toner", "face-lotion")),
-            Map.entry("moisturizer", List.of("cream", "moisturi", "body-milk", "body-lotion")),
-            Map.entry("makeup", List.of("makeup", "foundation", "mascara")),
+            Map.entry("makeup", List.of("makeup", "foundation", "mascara", "bb-cream", "cc-cream", "dd-cream")),
+            Map.entry("body-care", List.of("body-", "hand-cream", "foot-")),
+            Map.entry("moisturizer", List.of("cream", "moisturi")),
             Map.entry("oil", List.of("-oils", "baby-oil")));
 
     private ObfCategories() {
