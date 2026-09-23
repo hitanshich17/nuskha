@@ -32,7 +32,9 @@ AHAs, irritants, sensitivities). AI/ML is used where it solves a real problem:
 - Sizes: fl oz -> ml, oz -> g; liquids sold in "oz" count as fl oz; creams, balms and sticks keep oz.
 - OTC active ingredients (acne treatments, sunscreens) are stored separately with their percentage.
 - Curated catalog: ~25 products per category; the author approves each list. Claude reads ingredients
-  from brand pages; the author supplies prices Claude cannot read. Never bypass bot protection or read
+  from brand pages; everything the author must supply goes into catalog/TO-FILL.md. When all categories
+  are done, Claude tells the author to fill it, then waits until the author says it is done.
+  Prices Claude cannot read are also supplied by the author. Never bypass bot protection or read
   retailer sites whose terms forbid automated access.
 
 ## Data

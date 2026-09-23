@@ -48,6 +48,11 @@ as `fl oz`); ingredients copied exactly; OTC active ingredients go in `actives` 
 
 ## Treatments
 
+- [ ] **Differin Adapalene Gel 0.1%**: price and size (offer row, any retailer).
+  Page: https://differin.com/shop/differin-gel/3029949.html
+- [ ] **Neutrogena Rapid Wrinkle Repair Serum**: price and size.
+  Page: https://www.neutrogena.com/products/skincare/rapid-wrinkle-repair-serum/6812014
+
 - [ ] **Paula's Choice 2% BHA Liquid Exfoliant**: ingredients (loaded by JavaScript) and size. Price on the page: $37.
   Page: https://www.paulaschoice.com/skin-perfecting-2pct-bha-liquid-exfoliant/201-2010.html
   id: `paulas-choice-2-bha-liquid-exfoliant`
