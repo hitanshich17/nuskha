@@ -47,7 +47,7 @@ last column, `import`.
 
 ## Treatments
 
-- [ ] **Differin Adapalene Gel 0.1%**: price and size (offer row, any retailer).
+- [x] **Differin Adapalene Gel 0.1%**: price and size (offer row, any retailer).
   Page: https://differin.com/shop/differin-gel/3029949.html
 - [ ] **Neutrogena Rapid Wrinkle Repair Serum**: price and size.
   Page: https://www.neutrogena.com/products/skincare/rapid-wrinkle-repair-serum/6812014
