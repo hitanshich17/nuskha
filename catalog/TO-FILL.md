@@ -60,3 +60,21 @@ as `fl oz`); ingredients copied exactly; OTC active ingredients go in `actives` 
   `good-molecules-discoloration-correcting-serum,brand,12.00,30,ml,https://www.goodmolecules.com/s/good-molecules-discoloration-correcting-serum-30ml,2026-09-23`
   Page: https://www.goodmolecules.com/s/good-molecules-discoloration-correcting-serum-30ml
   id: `good-molecules-discoloration-correcting-serum`
+- [ ] **Drunk Elephant C-Firma Fresh Day Serum** (28 ml): price.
+  Page: https://www.drunkelephant.com/collections/serums/c-firma-fresh-vitamin-c-day-serum-812343034358.html
+- [ ] **Drunk Elephant A-Passioni Retinol Cream** (30 ml): price.
+  Page: https://www.drunkelephant.com/collections/masks/a-passioni-retinol-cream-812343032392.html
+- [ ] **Sunday Riley Good Genes**: ingredients (loaded by JavaScript). Prices are known; after adding the product
+  row (id `sunday-riley-good-genes`), add these offers:
+  `sunday-riley-good-genes,brand,50.00,15,ml,https://sundayriley.com/products/good-genes-lactic-acid-treatment,2026-09-23`
+  `sunday-riley-good-genes,brand,85.00,30,ml,https://sundayriley.com/products/good-genes-lactic-acid-treatment,2026-09-23`
+  `sunday-riley-good-genes,brand,122.00,50,ml,https://sundayriley.com/products/good-genes-lactic-acid-treatment,2026-09-23`
+  `sunday-riley-good-genes,brand,205.00,100,ml,https://sundayriley.com/products/good-genes-lactic-acid-treatment,2026-09-23`
+  Page: https://sundayriley.com/products/good-genes-lactic-acid-treatment
+- [ ] **Kiehl's Clearly Corrective Dark Spot Solution**: whole product (site blocks automated reading).
+  id: `kiehls-clearly-corrective-dark-spot-solution`
+- [ ] **SkinCeuticals C E Ferulic**: whole product (site blocks automated reading).
+  Page: https://www.skinceuticals.com/skincare/vitamin-c-serums/c-e-ferulic-with-15-l-ascorbic-acid/S17.html
+  id: `skinceuticals-c-e-ferulic`
+- [ ] **La Roche-Posay Effaclar Duo**: whole product (site blocks automated reading). OTC acne treatment:
+  put the benzoyl peroxide % in `actives`. id: `la-roche-posay-effaclar-duo`
