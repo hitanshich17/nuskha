@@ -18,7 +18,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 class CatalogImporterIntegrationTest {
 
     private static final String PRODUCTS = """
-            gentle-cleanser,Brand A,Gentle Cleanser,cleanser,"Aqua, Glycerin, Fragrance (Parfum), Novel Botanical Extract",https://brand-a.example/img.jpg,https://brand-a.example/cleanser
+            gentle-cleanser,Brand A,Gentle Cleanser,cleanser,Benzoyl Peroxide 4%,"Aqua, Glycerin, Fragrance (Parfum), Novel Botanical Extract",https://brand-a.example/img.jpg,https://brand-a.example/cleanser
             """;
     private static final String TWO_OFFERS = """
             gentle-cleanser,target,15.99,16,fl oz,https://target.example/p/1,2026-09-20
@@ -65,6 +65,15 @@ class CatalogImporterIntegrationTest {
                 """, String.class)).containsExactly(
                 "brand 1800 2026-09-21",
                 "target 1599 473.18 ml 2026-09-20");
+    }
+
+    @Test
+    void storesActivesWithPercentageLinkedToCanonicalIngredient() throws IOException {
+        importCsv(TWO_OFFERS);
+
+        assertThat(jdbc.queryForList("""
+                SELECT i.inci_name || ' ' || pa.percent FROM product_actives pa JOIN ingredients i ON i.id = pa.ingredient_id
+                """, String.class)).containsExactly("Benzoyl Peroxide 4.00");
     }
 
     @Test

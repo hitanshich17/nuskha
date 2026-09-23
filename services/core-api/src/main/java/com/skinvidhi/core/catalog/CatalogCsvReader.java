@@ -30,15 +30,21 @@ public final class CatalogCsvReader {
     public static final Set<String> ROUTINE_CATEGORIES = Set.of("cleanser", "treatment", "moisturizer", "sunscreen");
 
     static final List<String> PRODUCT_COLUMNS =
-            List.of("id", "brand", "name", "category", "ingredients", "image_url", "source_url");
+            List.of("id", "brand", "name", "category", "actives", "ingredients", "image_url", "source_url");
     static final List<String> OFFER_COLUMNS =
             List.of("product_id", "retailer", "price_usd", "size", "unit", "url", "checked_on");
 
     private static final Pattern SLUG = Pattern.compile("^[a-z0-9]+(-[a-z0-9]+)*$");
     private static final Pattern PRICE = Pattern.compile("^\\d+(\\.\\d{1,2})?$");
+    /** One active ingredient with its concentration, e.g. "Benzoyl Peroxide 4%". */
+    private static final Pattern ACTIVE = Pattern.compile("^(.+?)\\s+(\\d+(?:\\.\\d+)?)\\s*%$");
 
-    public record CatalogProduct(String id, String brand, String name, String category, String ingredients,
-                                 String imageUrl, String sourceUrl) {
+    public record CatalogProduct(String id, String brand, String name, String category, List<Active> actives,
+                                 String ingredients, String imageUrl, String sourceUrl) {
+    }
+
+    /** An OTC drug active ingredient, listed on the label separately from the other ingredients. */
+    public record Active(String name, BigDecimal percent) {
     }
 
     public record CatalogOffer(String productId, String retailer, int priceCents, Size size, String url,
@@ -141,6 +147,7 @@ public final class CatalogCsvReader {
         String ingredients = required(where, row, "ingredients");
         String sourceUrl = required(where, row, "source_url");
         String imageUrl = optional(row, "image_url");
+        List<Active> actives = actives(where, optional(row, "actives"));
 
         if (id != null && !SLUG.matcher(id).matches()) {
             errors.add(where + ": id must be lowercase words joined by '-', e.g. cerave-hydrating-cleanser");
@@ -154,7 +161,7 @@ public final class CatalogCsvReader {
         checkUrl(where, "source_url", sourceUrl);
         checkUrl(where, "image_url", imageUrl);
         return errors.size() == before
-                ? new CatalogProduct(id, brand, name, category, ingredients, imageUrl, sourceUrl)
+                ? new CatalogProduct(id, brand, name, category, actives, ingredients, imageUrl, sourceUrl)
                 : null;
     }
 
@@ -209,6 +216,27 @@ public final class CatalogCsvReader {
         return errors.size() == before
                 ? new CatalogOffer(productId, retailer, priceCents, size, url, checkedOn)
                 : null;
+    }
+
+    /** Parses "Zinc Oxide 9%; Titanium Dioxide 3%". */
+    private List<Active> actives(String where, String text) {
+        if (text == null) {
+            return List.of();
+        }
+        List<Active> actives = new ArrayList<>();
+        for (String part : text.split(";")) {
+            var m = ACTIVE.matcher(part.strip());
+            BigDecimal percent = m.matches() ? new BigDecimal(m.group(2)) : null;
+            if (percent == null || percent.signum() <= 0 || percent.compareTo(BigDecimal.valueOf(100)) > 0) {
+                errors.add(where + ": actives must look like 'Benzoyl Peroxide 4%; Zinc Oxide 9%', not '"
+                        + part.strip() + "'");
+            } else if (actives.stream().anyMatch(a -> a.name().equalsIgnoreCase(m.group(1).strip()))) {
+                errors.add(where + ": active '" + m.group(1).strip() + "' is listed twice");
+            } else {
+                actives.add(new Active(m.group(1).strip(), percent));
+            }
+        }
+        return actives;
     }
 
     private String required(String where, Map<String, String> row, String column) {

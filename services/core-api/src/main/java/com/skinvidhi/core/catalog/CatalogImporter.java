@@ -1,11 +1,13 @@
 package com.skinvidhi.core.catalog;
 
+import com.skinvidhi.core.catalog.CatalogCsvReader.Active;
 import com.skinvidhi.core.catalog.CatalogCsvReader.Catalog;
 import com.skinvidhi.core.catalog.CatalogCsvReader.CatalogOffer;
 import com.skinvidhi.core.catalog.CatalogCsvReader.CatalogProduct;
 import com.skinvidhi.core.catalog.ProductWriter.ProductData;
 import com.skinvidhi.core.ingredient.IngredientListParser;
 import com.skinvidhi.core.ingredient.IngredientResolver;
+import com.skinvidhi.core.ingredient.LabelIngredient;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
@@ -21,7 +23,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.support.TransactionTemplate;
 
 /**
- * Imports the hand-curated catalog: products with their ingredient lists, and their offers.
+ * Imports the hand-curated catalog: products with their ingredient lists and OTC actives, and their offers.
  * The CSV files are the source of truth, so each product's offers are replaced on every import.
  */
 @Service
@@ -54,9 +56,13 @@ public class CatalogImporter {
         // Resolve ingredients before the transaction (see ObfImporter for why).
         IngredientResolver resolver = new IngredientResolver(jdbc);
         Map<String, List<Long>> ingredientIds = new HashMap<>();
+        Map<Active, Long> activeIds = new HashMap<>();
         for (CatalogProduct p : catalog.products()) {
             ingredientIds.put(p.id(), IngredientListParser.parse(p.ingredients()).stream()
                     .flatMap(i -> resolver.resolve(i).stream()).distinct().toList());
+            for (Active a : p.actives()) {
+                activeIds.put(a, resolver.resolve(LabelIngredient.of(a.name())).getFirst());
+            }
         }
 
         tx.executeWithoutResult(status -> {
@@ -65,6 +71,11 @@ public class CatalogImporter {
                 long id = productWriter.upsert(new ProductData(SOURCE, p.id(), p.brand(), p.name(), p.category(),
                         p.ingredients(), p.imageUrl(), p.sourceUrl()));
                 productWriter.replaceIngredients(id, ingredientIds.get(p.id()));
+                jdbc.update("DELETE FROM product_actives WHERE product_id = ?", id);
+                for (Active a : p.actives()) {
+                    jdbc.update("INSERT INTO product_actives (product_id, ingredient_id, percent) VALUES (?, ?, ?)",
+                            id, activeIds.get(a), a.percent());
+                }
                 jdbc.update("DELETE FROM product_offers WHERE product_id = ?", id);
                 productIds.put(p.id(), id);
             }
