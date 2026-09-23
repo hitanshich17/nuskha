@@ -40,3 +40,12 @@ as `fl oz`); ingredients copied exactly; OTC active ingredients go in `actives` 
   imports can have a different formula, so use the US listing).
   Page: https://www.walmart.com/ip/Shiseido-Senka-Perfect-Whip-Cream-Face-Wash-4-23-oz/908991070
   id: `senka-perfect-whip`, retailer: `walmart`
+- [ ] **Drunk Elephant Beste No. 9 Jelly Cleanser**: price + size. The page shows $18.00 without saying which
+  size (possibly the travel size), so check it in the browser.
+  Page: https://www.drunkelephant.com/beste-no.-9-jelly-cleanser-812343032415.html
+- [ ] **Fresh Soy Face Cleanser**: whole product (site blocks automated reading).
+  Page: https://www.fresh.com/us/skincare/categories/cleansers/soy-face-cleanser-H00006238.html
+  id: `fresh-soy-face-cleanser`
+- [ ] **Youth To The People Superfood Cleanser**: whole product (site blocks automated reading).
+  Page: https://www.youthtothepeople.com/skincare/cleansers/superfood-cleanser/YTTP-10100.html
+  id: `youth-to-the-people-superfood-cleanser`
