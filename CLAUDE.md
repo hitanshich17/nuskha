@@ -1,27 +1,47 @@
 # Nuskha: project context for Claude Code
 
 ## What this is
-A skincare reaction-analysis app and resume project. The user marks products that caused a reaction
-("reacted") and products that were fine ("safe"). Nuskha:
-1. Checks for red flags (severe swelling, blistering, spreading rash, eyes) and sends the user to a doctor.
-2. Ranks likely culprit ingredients with an honest confidence level (never a diagnosis).
-3. Recommends replacement products that do the same job without the suspected triggers.
-4. Suggests curated home remedies (many from Indian households), filtered against the user's
-   triggers and labeled by evidence level, always with a patch-test reminder.
+A US-first skincare routine builder and portfolio project (no monetization, no affiliate links).
+Think "Skyscanner for skincare": brands build routines only from their own lines; Nuskha compares
+products across every brand.
 
-Not medical advice. Rules and data make safety decisions; the LLM only reads input and explains output.
+1. A quick quiz (about a minute): skin type, main concerns, sensitivities, budget, city, and an
+   optional skin tone / sun-reaction question (closer to the Fitzpatrick scale than to ethnicity).
+   The city gives climate (humidity, UV, pollution), so we do not ask about it.
+2. Nuskha builds a morning and a night routine from products across all brands, within the budget.
+3. For each suggested product the user can say "already tried it: liked / disliked";
+   a dislike swaps in a replacement that does the same job without the suspect ingredients.
+4. Later: a community section where people post home remedies they tried and others upvote them,
+   with moderation and flags for known-harmful remedies.
+
+Not medical advice. Rules and data make safety decisions (ingredient clashes such as retinoids with
+AHAs, irritants, sensitivities). AI/ML is used where it solves a real problem:
+- vision LLM reads ingredient lists from product images (fills gaps in product data)
+- product embeddings in pgvector find replacements
+- a ranking model learned from liked/disliked feedback, compared against the rule-based ranking
+  on an evaluation set (only once there is enough feedback)
+- an LLM explains *why* a routine was chosen, from the rules' output
+
+## Data
+Free sources only: Open Beauty Facts (imported, weak US coverage), public Shopify product data from
+brand stores (respect terms of service and robots.txt), and a hand-curated set of popular US
+products with manually maintained prices. Product links are plain links.
 
 ## Architecture
-- services/core-api: Java 21, Spring Boot 3.5, JPA, Flyway, Redis. Products, reports, culprit ranking, replacements.
-- services/ai-service: Python 3.12, FastAPI. Label reading (vision LLM), embeddings, explanations.
+- services/core-api: Java 21, Spring Boot 3.5, JPA, Flyway, Redis. Products, ingredients, quiz,
+  routine rules engine, replacements, feedback.
+- services/ai-service: Python 3.12, FastAPI. Label reading (vision LLM), embeddings, explanations,
+  ranking model.
 - PostgreSQL 16 + pgvector, Redis, S3 + SQS (LocalStack locally).
 - Deployment later: one EC2 t4g.small running Docker Compose, S3/SQS, IAM, CloudWatch,
   all in Terraform, deployed by GitHub Actions via OIDC (no stored AWS keys). Budget is tight: avoid
   NAT gateways, load balancers, ElastiCache, EKS. Kubernetes manifests run on a local kind/minikube cluster.
 
 ## Conventions
-- Schema changes go in new Flyway migrations (V2__..., never edit V1).
+- Schema changes go in new Flyway migrations (V3__..., never edit a released V migration).
+  Curated reference data lives in repeatable R__ migrations.
 - Ingredient names are normalized to canonical ingredients via ingredient_aliases.
+  Synonyms read on labels are never saved as aliases (see IngredientResolver).
 - Ingredient position matters (earlier = higher concentration).
 - Every feature gets tests: JUnit (+ Testcontainers for DB), PyTest.
 - Keep secrets in .env only; never commit keys.
@@ -29,12 +49,14 @@ Not medical advice. Rules and data make safety decisions; the LLM only reads inp
 
 ## Roadmap
 1. Foundation: services, local env, CI (done)
-2. Data pipeline: import Open Beauty Facts, ingredient normalization  <- NEXT
-3. Culprit engine + evaluation set
-4. Replacement matching (pgvector)
-5. Home remedies, red-flag guardrails, AI features
-6. Frontend (Next.js), AWS deployment, real users
+2. Ingredient pipeline: Open Beauty Facts import, ingredient normalization (done)
+3. US product catalog: curated products, Shopify sources, prices, categories  <- NEXT
+4. Quiz + routine rules engine: step templates, clash rules, budget fit, climate from city
+5. Replacements and feedback: "tried it? liked/disliked", pgvector similarity
+6. AI: label reading, explanations; ranking model from feedback + evaluation set
+7. Frontend (Next.js), AWS deployment
+8. Community home remedies
 
 ## Author context
 The developer is learning Spring Boot, Terraform, AWS, and Kubernetes through this project.
-Explain new concepts briefly when introducing them.
+Explain new concepts briefly when introducing them. Work in small steps and check in between them.
