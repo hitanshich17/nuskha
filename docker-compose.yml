@@ -1,21 +1,21 @@
-# Local development environment for Nuskha.
+# Local development environment for SkinVidhi.
 # Everything runs on your machine for free. AWS is only used later for deployment.
 #   docker compose up --build
-name: nuskha
+name: skinvidhi
 
 services:
   postgres:
     image: pgvector/pgvector:pg16          # PostgreSQL 16 with the pgvector extension
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-nuskha}
-      POSTGRES_USER: ${POSTGRES_USER:-nuskha}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nuskha_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-skinvidhi}
+      POSTGRES_USER: ${POSTGRES_USER:-skinvidhi}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-skinvidhi_dev_password}
     ports:
       - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-nuskha} -d ${POSTGRES_DB:-nuskha}"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-skinvidhi} -d ${POSTGRES_DB:-skinvidhi}"]
       interval: 5s
       timeout: 5s
       retries: 10
@@ -65,9 +65,9 @@ services:
     build: ./services/core-api
     environment:
       SPRING_PROFILES_ACTIVE: local
-      DB_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-nuskha}
-      DB_USER: ${POSTGRES_USER:-nuskha}
-      DB_PASSWORD: ${POSTGRES_PASSWORD:-nuskha_dev_password}
+      DB_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-skinvidhi}
+      DB_USER: ${POSTGRES_USER:-skinvidhi}
+      DB_PASSWORD: ${POSTGRES_PASSWORD:-skinvidhi_dev_password}
       REDIS_HOST: redis
       AI_SERVICE_URL: http://ai-service:8000
     ports:

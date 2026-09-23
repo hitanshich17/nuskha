@@ -23,10 +23,10 @@ fi
 if [[ -f "$ROOT/.env" ]]; then
   set -a; source "$ROOT/.env"; set +a
 fi
-export DB_URL="${DB_URL:-jdbc:postgresql://localhost:5432/${POSTGRES_DB:-nuskha}}"
-export DB_USER="${DB_USER:-${POSTGRES_USER:-nuskha}}"
-export DB_PASSWORD="${DB_PASSWORD:-${POSTGRES_PASSWORD:-nuskha_dev_password}}"
+export DB_URL="${DB_URL:-jdbc:postgresql://localhost:5432/${POSTGRES_DB:-skinvidhi}}"
+export DB_USER="${DB_USER:-${POSTGRES_USER:-skinvidhi}}"
+export DB_PASSWORD="${DB_PASSWORD:-${POSTGRES_PASSWORD:-skinvidhi_dev_password}}"
 
 cd "$ROOT/services/core-api"
 ./mvnw -q spring-boot:run \
-  -Dspring-boot.run.arguments="--spring.main.web-application-type=none --nuskha.import.obf-file=$DUMP"
+  -Dspring-boot.run.arguments="--spring.main.web-application-type=none --skinvidhi.import.obf-file=$DUMP"

@@ -9,8 +9,8 @@ RUN mvn -B -q package -DskipTests
 # ---- Runtime stage: small JRE image, non-root user ----
 FROM eclipse-temurin:21-jre
 WORKDIR /app
-RUN useradd --system --uid 1001 nuskha
+RUN useradd --system --uid 1001 skinvidhi
 COPY --from=build /app/target/core-api-*.jar app.jar
-USER nuskha
+USER skinvidhi
 EXPOSE 8080
 ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75", "-jar", "app.jar"]

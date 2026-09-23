@@ -11,11 +11,11 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.nuskha</groupId>
+    <groupId>com.skinvidhi</groupId>
     <artifactId>core-api</artifactId>
     <version>0.1.0</version>
     <name>core-api</name>
-    <description>Nuskha core API: products, reaction reports, culprit ranking, replacements</description>
+    <description>SkinVidhi core API: products, ingredients, quiz, routine rules, replacements</description>
 
     <properties>
         <java.version>21</java.version>
