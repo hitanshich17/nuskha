@@ -16,10 +16,7 @@ last column, `import`.
 - [x] **La Roche-Posay Toleriane Hydrating Gentle Cleanser**: whole product (row in products.csv and offers.csv).
   Page: https://www.laroche-posay.us/our-products/face/face-wash/toleriane-hydrating-gentle-facial-cleanser-tolerianehydratinggentlefacialcleanser.html
   id: `la-roche-posay-toleriane-hydrating-gentle-cleanser`
-- [ ] **La Roche-Posay Effaclar Medicated Gel Cleanser**: whole product (site blocks automated reading).
-  It's an OTC acne product, so put the salicylic acid % in `actives`.
-  Search: https://www.laroche-posay.us/our-products/face/face-wash
-  id: `la-roche-posay-effaclar-medicated-gel-cleanser`
+- [x] ~~**La Roche-Posay Effaclar Medicated Gel Cleanser**~~: discontinued, dropped.
 - [x] **Vanicream Gentle Facial Cleanser**: price and size (not sold on the brand site).
   Page: https://www.vanicream.com/product/vanicream-facial-cleanser
 - [x] **Neutrogena Oil-Free Acne Wash**: price and size (the page doesn't include a price).
