@@ -76,7 +76,7 @@ scripts/               Data import scripts
 
 1. Foundation: services, local environment, CI ✅
 2. Ingredient pipeline: Open Beauty Facts import, ingredient normalization ✅
-3. US product catalog: curated products, prices, categories
+3. US product catalog: curated products, prices, categories ✅
 4. Quiz and routine rules engine (budget, climate from city)
 5. Replacements and feedback ("tried it? liked it?")
 6. AI: label reading, explanations, ranking model learned from feedback

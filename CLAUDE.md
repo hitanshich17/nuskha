@@ -66,8 +66,8 @@ products with manually maintained prices. Product links are plain links.
 ## Roadmap
 1. Foundation: services, local env, CI (done)
 2. Ingredient pipeline: Open Beauty Facts import, ingredient normalization (done)
-3. US product catalog: curated products, Shopify sources, prices, categories  <- NEXT
-4. Quiz + routine rules engine: step templates, clash rules, budget fit, climate from city
+3. US product catalog: curated products, prices, categories (done: 101 products, 136 offers)
+4. Quiz + routine rules engine: step templates, clash rules, budget fit, climate from city  <- NEXT
 5. Replacements and feedback: "tried it? liked/disliked", pgvector similarity
 6. AI: label reading, explanations; ranking model from feedback + evaluation set
 7. Frontend (Next.js), AWS deployment
