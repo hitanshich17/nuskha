@@ -132,7 +132,7 @@ last column, `import`.
 - [x] **Black Girl Sunscreen SPF 30**: **price + size only** (product added from its DailyMed label). id `black-girl-sunscreen-spf30`
 - [x] **Unsun Mineral Tinted Face Sunscreen SPF 30**: **price + size only** (product added from its DailyMed label). id `unsun-mineral-tinted-spf30`
 - [ ] **Isntree Hyaluronic Acid Watery Sun Gel** (import): whole product. id: `isntree-hyaluronic-acid-watery-sun-gel`
-- [ ] **ISDIN Eryfotona Actinica** (1.7 fl oz page): price. Page: https://www.isdin.com/us/p/actinica-17-fl-oz/4266
+- [x] **ISDIN Eryfotona Actinica** (1.7 fl oz page): price. Page: https://www.isdin.com/us/p/actinica-17-fl-oz/4266
 - [ ] **Neutrogena Ultra Sheer Dry-Touch SPF 55**: price + size.
   Page: https://www.neutrogena.com/products/sun/ultra-sheer-dry-touch-sunscreen-broad-spectrum-spf-55/6868790
 - [x] **Bioré UV Aqua Rich Hydrating Facial Moisturizer SPF 50** (US): inactive ingredients (not in the page).
