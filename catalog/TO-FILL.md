@@ -131,8 +131,8 @@ last column, `import`.
 - [ ] **d'Alba Waterfull Essence Sunscreen SPF 50+**: check the ingredients. The brand page's list has no UV filters
   at all, so it may be incomplete. $16 on https://dalba.com/products/dalba-waterfull-essence-sunscreen-spf50
   If it's the Korean formula, set `import` to `yes`. id: `dalba-waterfull-essence-sunscreen`
-- [ ] **Black Girl Sunscreen SPF 30**: whole product (store not readable). id: `black-girl-sunscreen-spf30`
-- [ ] **Unsun Mineral Tinted Face Sunscreen SPF 30**: whole product (store not readable). id: `unsun-mineral-tinted-spf30`
+- [ ] **Black Girl Sunscreen SPF 30**: **price + size only** (product added from its DailyMed label). id `black-girl-sunscreen-spf30`
+- [ ] **Unsun Mineral Tinted Face Sunscreen SPF 30**: **price + size only** (product added from its DailyMed label). id `unsun-mineral-tinted-spf30`
 - [ ] **Isntree Hyaluronic Acid Watery Sun Gel** (import): whole product. id: `isntree-hyaluronic-acid-watery-sun-gel`
 - [ ] **ISDIN Eryfotona Actinica** (1.7 fl oz page): price. Page: https://www.isdin.com/us/p/actinica-17-fl-oz/4266
 - [ ] **Neutrogena Ultra Sheer Dry-Touch SPF 55**: price + size.
@@ -140,12 +140,12 @@ last column, `import`.
 - [x] **Bioré UV Aqua Rich Hydrating Facial Moisturizer SPF 50** (US): inactive ingredients (not in the page).
   Actives known: `Avobenzone 3%; Homosalate 10%; Octisalate 5%; Octocrylene 5%`. Price known: $15.99.
   Page: https://us.biore.com/products/biore-sunscreen-spf-50  id: `biore-uv-aqua-rich-spf50`
-- [ ] **Dr.G Green Mild Up Defense Mineral Sunscreen** (US OTC version): actives % and ingredients. Price known: $29 / 50 ml.
+- [x] **Dr.G Green Mild Up Defense Mineral Sunscreen** *(done via DailyMed)* (US OTC version): actives % and ingredients. Price known: $29 / 50 ml.
   Page: https://www.dr-g.com/products/dr-g-green-mild-up-sun-50ml-%EC%82%AC%EB%B3%B8  id: `dr-g-green-mild-up-defense-mineral-sunscreen`
-- [ ] **Drunk Elephant Umbra Sheer Mineral Cream SPF 30**: actives % and ingredients. Price on the page: $42.
+- [x] **Drunk Elephant Umbra Sheer Mineral Cream SPF 30** *(done via DailyMed)*: actives % and ingredients. Price on the page: $42.
   Page: https://www.drunkelephant.com/collections/sun-protection/umbra-sheer-mineral-cream-spf-30pa-812343032804.html
   id: `drunk-elephant-umbra-sheer-spf30`
-- [ ] **La Roche-Posay Anthelios Melt-in Milk SPF 60**: whole product (blocked). id: `la-roche-posay-anthelios-melt-in-milk-spf60`
-- [ ] **La Roche-Posay Anthelios Mineral Tinted SPF 50**: whole product (blocked). id: `la-roche-posay-anthelios-mineral-tinted-spf50`
+- [ ] **La Roche-Posay Anthelios Melt-in Milk SPF 60**: **price + size only** (product added from its DailyMed label). id `la-roche-posay-anthelios-melt-in-milk-spf60`
+- [ ] **La Roche-Posay Anthelios Mineral Tinted SPF 50**: **price + size only** (product added from its DailyMed label). id `la-roche-posay-anthelios-mineral-tinted-spf50`
 - [ ] **Aveeno Protect + Soothe Mineral Sunscreen Stick SPF 50**: price + size (a stick, so the unit is `oz`).
   Page: https://www.aveeno.com/products/skin/protect-soothe-mineral-sunscreen-stick-spf-50
