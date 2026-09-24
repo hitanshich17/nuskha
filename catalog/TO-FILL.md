@@ -74,7 +74,7 @@ last column, `import`.
 
 - [x] **CeraVe Moisturizing Cream**: price + size (the page's $14.99 sits next to a "16 oz + 1.89 oz" bundle, so unclear).
   Page: https://www.cerave.com/skincare/moisturizers/moisturizing-cream
-- [ ] **Cetaphil Moisturizing Cream**: price + size.
+- [x] **Cetaphil Moisturizing Cream**: price + size.
   Page: https://www.cetaphil.com/us/products/product-categories/all-moisturizers/moisturizing-cream/302993917564.html
 - [ ] **Vanicream Daily Facial Moisturizer**: price + size.
   Page: https://www.vanicream.com/product/vanicream-daily-facial-moisturizer
