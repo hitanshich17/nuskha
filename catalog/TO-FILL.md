@@ -91,14 +91,14 @@ last column, `import`.
   Page: https://www.drunkelephant.com/protini-polypeptide-firming-refillable-moisturizer-856556004739.html
 - [ ] **BYOMA Moisturising Gel Cream**: ingredients (not in the page). Price known; after the product row
   (id `byoma-moisturizing-gel-cream`), add: `byoma-moisturizing-gel-cream,brand,14.99,,,https://byoma.com/products/moisturizing-gel-cream,2026-09-23`
-- [ ] **La Roche-Posay Toleriane Double Repair Face Moisturizer** (the version without SPF): whole product (blocked).
+- [x] **La Roche-Posay Toleriane Double Repair Face Moisturizer** (the version without SPF): whole product (blocked).
   id: `la-roche-posay-toleriane-double-repair-moisturizer`
-- [ ] **Paula's Choice CLEAR Oil-Free Moisturizer**: whole product (ingredients loaded by JavaScript).
+- [x] **Paula's Choice CLEAR Oil-Free Moisturizer**: whole product (ingredients loaded by JavaScript).
   id: `paulas-choice-clear-oil-free-moisturizer`
-- [ ] **Kiehl's Ultra Facial Cream**: whole product (blocked). id: `kiehls-ultra-facial-cream`
-- [ ] **Youth To The People Superfood Air-Whip Moisture Cream**: whole product (blocked).
+- [x] **Kiehl's Ultra Facial Cream**: whole product (blocked). id: `kiehls-ultra-facial-cream`
+- [x] **Youth To The People Superfood Air-Whip Moisture Cream**: whole product (blocked).
   id: `youth-to-the-people-superfood-air-whip-moisture-cream`
-- [ ] **Belif The True Cream Aqua Bomb**: whole product (no readable official store). id: `belif-the-true-cream-aqua-bomb`
+- [x] **Belif The True Cream Aqua Bomb**: whole product (no readable official store). id: `belif-the-true-cream-aqua-bomb`
 
 ## Sunscreens
 
