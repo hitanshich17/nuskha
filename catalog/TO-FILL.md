@@ -129,7 +129,7 @@ last column, `import`.
   Actives known: `Titanium Dioxide 1.33%; Zinc Oxide 17.42%`. id: `supergoop-mineral-mattescreen-spf40`.
   Offer ready: `supergoop-mineral-mattescreen-spf40,brand,40.00,1.5,fl oz,https://supergoop.com/products/smooth-and-poreless-mattescreen,2026-09-23`
 - [x] ~~**d'Alba Waterfull Essence Sunscreen SPF 50+**~~: dropped (published list has no UV filters; no US label).
-- [ ] **Black Girl Sunscreen SPF 30**: **price + size only** (product added from its DailyMed label). id `black-girl-sunscreen-spf30`
+- [x] **Black Girl Sunscreen SPF 30**: **price + size only** (product added from its DailyMed label). id `black-girl-sunscreen-spf30`
 - [x] **Unsun Mineral Tinted Face Sunscreen SPF 30**: **price + size only** (product added from its DailyMed label). id `unsun-mineral-tinted-spf30`
 - [ ] **Isntree Hyaluronic Acid Watery Sun Gel** (import): whole product. id: `isntree-hyaluronic-acid-watery-sun-gel`
 - [ ] **ISDIN Eryfotona Actinica** (1.7 fl oz page): price. Page: https://www.isdin.com/us/p/actinica-17-fl-oz/4266
