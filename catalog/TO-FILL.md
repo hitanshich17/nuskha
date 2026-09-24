@@ -82,8 +82,7 @@ last column, `import`.
   Page: https://www.neutrogena.com/products/skincare/neutrogena-hydro-boost-water-gel-fragrance-free-moisturizer/6806482
 - [x] **Aestura Atobarrier 365 Cream**: US price + size (the international store shows prices in JPY).
   Page: https://int.aestura.com/products/atobarrier365-cream  (US retailers: Olive Young US, Amazon)
-- [ ] **Illiyoon Ceramide Ato Concentrate Cream**: whole product (no readable official store).
-  id: `illiyoon-ceramide-ato-concentrate-cream`
+- [x] ~~**Illiyoon Ceramide Ato Concentrate Cream**~~: dropped (full ingredient list not available).
 - [ ] **Dr.Althea 345 Relief Cream**: whole product (no readable official store).
   id: `dr-althea-345-relief-cream`
 - [ ] **Clinique Moisture Surge 100H**: price + size (the page's $89 is the default variant, possibly the jumbo).
