@@ -76,7 +76,7 @@ last column, `import`.
   Page: https://www.cerave.com/skincare/moisturizers/moisturizing-cream
 - [x] **Cetaphil Moisturizing Cream**: price + size.
   Page: https://www.cetaphil.com/us/products/product-categories/all-moisturizers/moisturizing-cream/302993917564.html
-- [ ] **Vanicream Daily Facial Moisturizer**: price + size.
+- [x] **Vanicream Daily Facial Moisturizer**: price + size. *(Price done; size still unknown, optional.)*
   Page: https://www.vanicream.com/product/vanicream-daily-facial-moisturizer
 - [ ] **Neutrogena Hydro Boost Water Gel (Fragrance Free)**: price + size.
   Page: https://www.neutrogena.com/products/skincare/neutrogena-hydro-boost-water-gel-fragrance-free-moisturizer/6806482
