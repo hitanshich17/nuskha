@@ -115,7 +115,7 @@ last column, `import`.
   Page: https://www.skin1004.com/products/hyalu-cica-water-fit-sun-serum-uv
   id: `skin1004-hyalu-cica-water-fit-sun-serum-uv`
 - [ ] **Aestura Derma UV365 Barrier Hydro Mineral Sunscreen** (import): US price + size (int. store shows $0).
-- [ ] **Beauty of Joseon Relief Sun: Rice + Probiotics** (import): whole product; the US store page is 404, so check
+- [x] **Beauty of Joseon Relief Sun: Rice + Probiotics** (import): whole product; the US store page is 404, so check
   Olive Young US / Amazon. Set `import` to `yes`. id: `beauty-of-joseon-relief-sun`
 - [ ] **SKIN1004 Madagascar Centella Air-Fit Suncream Plus** (import): whole product (US store page is 404).
   id: `skin1004-centella-air-fit-suncream-plus`
