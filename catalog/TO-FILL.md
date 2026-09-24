@@ -128,9 +128,7 @@ last column, `import`.
 - [x] **Supergoop! Mineral Mattescreen SPF 40** (untinted): inactive ingredients (not in the page).
   Actives known: `Titanium Dioxide 1.33%; Zinc Oxide 17.42%`. id: `supergoop-mineral-mattescreen-spf40`.
   Offer ready: `supergoop-mineral-mattescreen-spf40,brand,40.00,1.5,fl oz,https://supergoop.com/products/smooth-and-poreless-mattescreen,2026-09-23`
-- [ ] **d'Alba Waterfull Essence Sunscreen SPF 50+**: check the ingredients. The brand page's list has no UV filters
-  at all, so it may be incomplete. $16 on https://dalba.com/products/dalba-waterfull-essence-sunscreen-spf50
-  If it's the Korean formula, set `import` to `yes`. id: `dalba-waterfull-essence-sunscreen`
+- [x] ~~**d'Alba Waterfull Essence Sunscreen SPF 50+**~~: dropped (published list has no UV filters; no US label).
 - [ ] **Black Girl Sunscreen SPF 30**: **price + size only** (product added from its DailyMed label). id `black-girl-sunscreen-spf30`
 - [ ] **Unsun Mineral Tinted Face Sunscreen SPF 30**: **price + size only** (product added from its DailyMed label). id `unsun-mineral-tinted-spf30`
 - [ ] **Isntree Hyaluronic Acid Watery Sun Gel** (import): whole product. id: `isntree-hyaluronic-acid-watery-sun-gel`
