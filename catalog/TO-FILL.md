@@ -143,6 +143,6 @@ last column, `import`.
 - [x] **Drunk Elephant Umbra Sheer Mineral Cream SPF 30** *(done via DailyMed)*: actives % and ingredients. Price on the page: $42.
   Page: https://www.drunkelephant.com/collections/sun-protection/umbra-sheer-mineral-cream-spf-30pa-812343032804.html
   id: `drunk-elephant-umbra-sheer-spf30`
-- [ ] **La Roche-Posay Anthelios Melt-in Milk SPF 60**: **price + size only** (product added from its DailyMed label). id `la-roche-posay-anthelios-melt-in-milk-spf60`
-- [ ] **La Roche-Posay Anthelios Mineral Tinted SPF 50**: **price + size only** (product added from its DailyMed label). id `la-roche-posay-anthelios-mineral-tinted-spf50`
+- [x] **La Roche-Posay Anthelios Melt-in Milk SPF 60**: **price + size only** (product added from its DailyMed label). id `la-roche-posay-anthelios-melt-in-milk-spf60`
+- [x] **La Roche-Posay Anthelios Mineral Tinted SPF 50**: **price + size only** (product added from its DailyMed label). id `la-roche-posay-anthelios-mineral-tinted-spf50`
 - [x] ~~**Aveeno Protect + Soothe Mineral Sunscreen Stick SPF 50**~~: replaced by Aveeno Protect + Hydrate Sunscreen Lotion SPF 60.
