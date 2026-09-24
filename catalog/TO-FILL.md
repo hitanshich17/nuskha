@@ -85,9 +85,9 @@ last column, `import`.
 - [x] ~~**Illiyoon Ceramide Ato Concentrate Cream**~~: dropped (full ingredient list not available).
 - [x] **Dr.Althea 345 Relief Cream**: whole product (no readable official store).
   id: `dr-althea-345-relief-cream`
-- [ ] **Clinique Moisture Surge 100H**: price + size (the page's $89 is the default variant, possibly the jumbo).
+- [x] **Clinique Moisture Surge 100H**: price + size (the page's $89 is the default variant, possibly the jumbo).
   Page: https://www.clinique.com/products/moisture-surge-100h-auto-replenishing-hydrator
-- [ ] **Drunk Elephant Protini Polypeptide Cream** (50 ml): price.
+- [x] **Drunk Elephant Protini Polypeptide Cream** (50 ml): price.
   Page: https://www.drunkelephant.com/protini-polypeptide-firming-refillable-moisturizer-856556004739.html
 - [ ] **BYOMA Moisturising Gel Cream**: ingredients (not in the page). Price known; after the product row
   (id `byoma-moisturizing-gel-cream`), add: `byoma-moisturizing-gel-cream,brand,14.99,,,https://byoma.com/products/moisturizing-gel-cream,2026-09-23`
