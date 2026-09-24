@@ -27,6 +27,9 @@ AHAs, irritants, sensitivities). AI/ML is used where it solves a real problem:
 - Treatment is one category; products are told apart by their actives (retinoid, AHA/BHA, vitamin C, ...).
 - Vitamin C treatments go in the PM routine only (the rule is for vitamin C treatments; moisturizers with some vitamin C are used AM and PM).
 - Moisturizers with built-in SPF are left out of the catalog; moisturizer and sunscreen stay separate steps.
+- The quiz is specified in docs/quiz.md (9 questions, ~1 minute). It asks about pregnancy/breastfeeding
+  (with "prefer not to say"); "yes" excludes retinoids. Up to 2 concerns, the first is the priority.
+  Optional preferences (fragrance-free, no imports, finish) are results-page filters, not quiz questions.
 - Products outside the four routine categories stay in the catalog but are never picked for routines.
 - A product can have several offers (retailer + size + price); the app shows the cheapest and compares.
 - Budget: filter on the upfront total, and also show an estimated monthly cost.
