@@ -145,5 +145,5 @@ last column, `import`.
   id: `drunk-elephant-umbra-sheer-spf30`
 - [ ] **La Roche-Posay Anthelios Melt-in Milk SPF 60**: **price + size only** (product added from its DailyMed label). id `la-roche-posay-anthelios-melt-in-milk-spf60`
 - [ ] **La Roche-Posay Anthelios Mineral Tinted SPF 50**: **price + size only** (product added from its DailyMed label). id `la-roche-posay-anthelios-mineral-tinted-spf50`
-- [ ] **Aveeno Protect + Soothe Mineral Sunscreen Stick SPF 50**: price + size (a stick, so the unit is `oz`).
+- [ ] ***Aveeno Protect + Soothe Mineral Sunscreen Stick SPF 50*: price + size (a stick, so the unit is `oz`).
   Page: https://www.aveeno.com/products/skin/protect-soothe-mineral-sunscreen-stick-spf-50
