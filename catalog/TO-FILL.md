@@ -89,8 +89,7 @@ last column, `import`.
   Page: https://www.clinique.com/products/moisture-surge-100h-auto-replenishing-hydrator
 - [x] **Drunk Elephant Protini Polypeptide Cream** (50 ml): price.
   Page: https://www.drunkelephant.com/protini-polypeptide-firming-refillable-moisturizer-856556004739.html
-- [ ] **BYOMA Moisturising Gel Cream**: ingredients (not in the page). Price known; after the product row
-  (id `byoma-moisturizing-gel-cream`), add: `byoma-moisturizing-gel-cream,brand,14.99,,,https://byoma.com/products/moisturizing-gel-cream,2026-09-23`
+- [x] ~~**BYOMA Moisturising Gel Cream**~~: dropped (only a grouped, unordered ingredient list is published).
 - [x] **La Roche-Posay Toleriane Double Repair Face Moisturizer** (the version without SPF): whole product (blocked).
   id: `la-roche-posay-toleriane-double-repair-moisturizer`
 - [x] **Paula's Choice CLEAR Oil-Free Moisturizer**: whole product (ingredients loaded by JavaScript).
