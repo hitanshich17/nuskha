@@ -114,12 +114,12 @@ last column, `import`.
   Actives known: `Avobenzone 2.7%; Homosalate 13.6%; Octisalate 4.5%; Octocrylene 9%`. Price known: $15.20 / 50 ml.
   Page: https://www.skin1004.com/products/hyalu-cica-water-fit-sun-serum-uv
   id: `skin1004-hyalu-cica-water-fit-sun-serum-uv`
-- [ ] **Aestura Derma UV365 Barrier Hydro Mineral Sunscreen** (import): US price + size (int. store shows $0).
+- [x] **Aestura Derma UV365 Barrier Hydro Mineral Sunscreen** (import): US price + size (int. store shows $0).
 - [x] **Beauty of Joseon Relief Sun: Rice + Probiotics** (import): whole product; the US store page is 404, so check
   Olive Young US / Amazon. Set `import` to `yes`. id: `beauty-of-joseon-relief-sun`
 - [ ] **SKIN1004 Madagascar Centella Air-Fit Suncream Plus** (import): whole product (US store page is 404).
   id: `skin1004-centella-air-fit-suncream-plus`
-- [ ] **Torriden DIVE-IN Mild Sun Cream** (import): whole product (not on Torriden's US store). id: `torriden-dive-in-mild-suncream`
+- [x] **Torriden DIVE-IN Mild Sun Cream** (import): whole product (not on Torriden's US store). id: `torriden-dive-in-mild-suncream`
 - [ ] **EltaMD UV Daily SPF 40**: price + size. Page: https://eltamd.com/products/uv-daily-broad-spectrum-spf-40
 - [x] **Supergoop! Unseen Sunscreen SPF 50**: inactive ingredients (not in the page).
   Actives known: `Avobenzone 3%; Homosalate 7%; Octisalate 5%; Octocrylene 9%`. id: `supergoop-unseen-sunscreen-spf50`.
