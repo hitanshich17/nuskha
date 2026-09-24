@@ -117,7 +117,7 @@ last column, `import`.
 - [x] **Aestura Derma UV365 Barrier Hydro Mineral Sunscreen** (import): US price + size (int. store shows $0).
 - [x] **Beauty of Joseon Relief Sun: Rice + Probiotics** (import): whole product; the US store page is 404, so check
   Olive Young US / Amazon. Set `import` to `yes`. id: `beauty-of-joseon-relief-sun`
-- [ ] **SKIN1004 Madagascar Centella Air-Fit Suncream Plus** (import): whole product (US store page is 404).
+- [x] **SKIN1004 Madagascar Centella Air-Fit Suncream Plus** (import): whole product (US store page is 404).
   id: `skin1004-centella-air-fit-suncream-plus`
 - [x] **Torriden DIVE-IN Mild Sun Cream** (import): whole product (not on Torriden's US store). id: `torriden-dive-in-mild-suncream`
 - [x] **EltaMD UV Daily SPF 40**: price + size. Page: https://eltamd.com/products/uv-daily-broad-spectrum-spf-40
