@@ -110,7 +110,7 @@ last column, `import`.
   id `round-lab-birch-mild-up-sunscreen-uvlock-spf50`, price $24.99,
   page https://roundlab.com/products/birch-juice-mild-up-uvlock-sunscreen. Ingredients (copy as-is):
   "WATER, ZINC OXIDE, ISODODECANE, CAPRYLYL METHICONE, POLYGLYCERY-3 POLYDIMETHYLSILFOXYETHYL DIMETHICONE, METHYL TRIMETHICONE, DISTEARDIMONIUM HECTORITE, SODIUM HYALURONATE, HYALURONIC ACID, BETULA PLATYPHYLLA JAPONICA JUICE, ARTEMISIA ANNUA EXTRACT, METHYL METHACRYLATE CROSSPOLYMER, GLYCERIN, BUTYLENE GLYCOL, PROPANEDIOL, GLYCERYL GLUCOSIDE, MAGNESIUM SULFATE, TRIETHOXYCAPRYLYLSILANE, ANTHEMIS NOBILIS FLOWER OIL, PINUS SYLVESTRIS LEAF OIL, SACCHAROMYCES FERMENT FILTRATE, ETHYLHEXYLGLYCERIN, CAPRYLYL GLYCOL, GLYCERYL CAPRYLATE, BUTYLOCTYL SALICYLATE, POLYMETHYLSILSESQUIOXANE, CYCLOHEXASILOXANE, 1,2-HEXANEDIOL, LAURYL POLYGLYCERYL-3 POLYDIMETHYILSOXYETHYL DIMETHICONE, CRYPTOMERIA JAPONICA LEAF EXTRACT, TOCOPHEROL (VITAMIN E), ASCORBIC ACID (VITAMIN C)"
-- [ ] **SKIN1004 Hyalu-Cica Water-Fit Sun Serum UV** (US version): inactive ingredients (not in the page).
+- [x] **SKIN1004 Hyalu-Cica Water-Fit Sun Serum UV** (US version): inactive ingredients (not in the page).
   Actives known: `Avobenzone 2.7%; Homosalate 13.6%; Octisalate 4.5%; Octocrylene 9%`. Price known: $15.20 / 50 ml.
   Page: https://www.skin1004.com/products/hyalu-cica-water-fit-sun-serum-uv
   id: `skin1004-hyalu-cica-water-fit-sun-serum-uv`
@@ -121,11 +121,11 @@ last column, `import`.
   id: `skin1004-centella-air-fit-suncream-plus`
 - [ ] **Torriden DIVE-IN Mild Sun Cream** (import): whole product (not on Torriden's US store). id: `torriden-dive-in-mild-suncream`
 - [ ] **EltaMD UV Daily SPF 40**: price + size. Page: https://eltamd.com/products/uv-daily-broad-spectrum-spf-40
-- [ ] **Supergoop! Unseen Sunscreen SPF 50**: inactive ingredients (not in the page).
+- [x] **Supergoop! Unseen Sunscreen SPF 50**: inactive ingredients (not in the page).
   Actives known: `Avobenzone 3%; Homosalate 7%; Octisalate 5%; Octocrylene 9%`. id: `supergoop-unseen-sunscreen-spf50`.
   Offers ready: `supergoop-unseen-sunscreen-spf50,brand,19.00,0.68,fl oz,https://supergoop.com/products/unseen-sunscreen-spf-50,2026-09-23`,
   `...,brand,38.00,1.7,fl oz,...`, `...,brand,48.00,2.5,fl oz,...` (same link and date)
-- [ ] **Supergoop! Mineral Mattescreen SPF 40** (untinted): inactive ingredients (not in the page).
+- [x] **Supergoop! Mineral Mattescreen SPF 40** (untinted): inactive ingredients (not in the page).
   Actives known: `Titanium Dioxide 1.33%; Zinc Oxide 17.42%`. id: `supergoop-mineral-mattescreen-spf40`.
   Offer ready: `supergoop-mineral-mattescreen-spf40,brand,40.00,1.5,fl oz,https://supergoop.com/products/smooth-and-poreless-mattescreen,2026-09-23`
 - [ ] **d'Alba Waterfull Essence Sunscreen SPF 50+**: check the ingredients. The brand page's list has no UV filters
@@ -137,7 +137,7 @@ last column, `import`.
 - [ ] **ISDIN Eryfotona Actinica** (1.7 fl oz page): price. Page: https://www.isdin.com/us/p/actinica-17-fl-oz/4266
 - [ ] **Neutrogena Ultra Sheer Dry-Touch SPF 55**: price + size.
   Page: https://www.neutrogena.com/products/sun/ultra-sheer-dry-touch-sunscreen-broad-spectrum-spf-55/6868790
-- [ ] **Bioré UV Aqua Rich Hydrating Facial Moisturizer SPF 50** (US): inactive ingredients (not in the page).
+- [x] **Bioré UV Aqua Rich Hydrating Facial Moisturizer SPF 50** (US): inactive ingredients (not in the page).
   Actives known: `Avobenzone 3%; Homosalate 10%; Octisalate 5%; Octocrylene 5%`. Price known: $15.99.
   Page: https://us.biore.com/products/biore-sunscreen-spf-50  id: `biore-uv-aqua-rich-spf50`
 - [ ] **Dr.G Green Mild Up Defense Mineral Sunscreen** (US OTC version): actives % and ingredients. Price known: $29 / 50 ml.
