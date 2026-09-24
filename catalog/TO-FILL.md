@@ -120,7 +120,7 @@ last column, `import`.
 - [ ] **SKIN1004 Madagascar Centella Air-Fit Suncream Plus** (import): whole product (US store page is 404).
   id: `skin1004-centella-air-fit-suncream-plus`
 - [x] **Torriden DIVE-IN Mild Sun Cream** (import): whole product (not on Torriden's US store). id: `torriden-dive-in-mild-suncream`
-- [ ] **EltaMD UV Daily SPF 40**: price + size. Page: https://eltamd.com/products/uv-daily-broad-spectrum-spf-40
+- [x] **EltaMD UV Daily SPF 40**: price + size. Page: https://eltamd.com/products/uv-daily-broad-spectrum-spf-40
 - [x] **Supergoop! Unseen Sunscreen SPF 50**: inactive ingredients (not in the page).
   Actives known: `Avobenzone 3%; Homosalate 7%; Octisalate 5%; Octocrylene 9%`. id: `supergoop-unseen-sunscreen-spf50`.
   Offers ready: `supergoop-unseen-sunscreen-spf50,brand,19.00,0.68,fl oz,https://supergoop.com/products/unseen-sunscreen-spf-50,2026-09-23`,
