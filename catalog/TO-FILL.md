@@ -78,7 +78,7 @@ last column, `import`.
   Page: https://www.cetaphil.com/us/products/product-categories/all-moisturizers/moisturizing-cream/302993917564.html
 - [x] **Vanicream Daily Facial Moisturizer**: price + size. *(Price done; size still unknown, optional.)*
   Page: https://www.vanicream.com/product/vanicream-daily-facial-moisturizer
-- [ ] **Neutrogena Hydro Boost Water Gel (Fragrance Free)**: price + size.
+- [x] **Neutrogena Hydro Boost Water Gel (Fragrance Free)**: price + size.
   Page: https://www.neutrogena.com/products/skincare/neutrogena-hydro-boost-water-gel-fragrance-free-moisturizer/6806482
 - [ ] **Aestura Atobarrier 365 Cream**: US price + size (the international store shows prices in JPY).
   Page: https://int.aestura.com/products/atobarrier365-cream  (US retailers: Olive Young US, Amazon)
