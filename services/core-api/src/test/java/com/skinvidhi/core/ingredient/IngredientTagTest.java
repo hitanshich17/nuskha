@@ -1,0 +1,89 @@
+package com.skinvidhi.core.ingredient;
+
+import static com.skinvidhi.core.ingredient.IngredientTag.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
+import java.util.Set;
+import org.junit.jupiter.api.Test;
+
+/** Names are real ingredient names from the curated catalog. */
+class IngredientTagTest {
+
+    private static Set<IngredientTag> tags(String... names) {
+        return IngredientTag.tagsFor(List.of(names));
+    }
+
+    @Test
+    void fragranceAndItsAllergens() {
+        assertThat(tags("PARFUM/FRAGRANCE")).containsExactly(FRAGRANCE);
+        assertThat(tags("Fragrance/Parfum")).containsExactly(FRAGRANCE);
+        assertThat(tags("Linalool")).containsExactly(FRAGRANCE_ALLERGEN);
+        assertThat(tags("Alpha-Isomethyl Ionone")).containsExactly(FRAGRANCE_ALLERGEN);
+        assertThat(tags("Benzyl Alcohol")).isEmpty(); // preservative in skincare
+    }
+
+    @Test
+    void essentialOilsButNotCarrierOilsExtractsOrWaters() {
+        assertThat(tags("Citrus Aurantium Dulcis Oil")).containsExactly(ESSENTIAL_OIL);
+        assertThat(tags("Melaleuca Alternifolia Leaf Oil")).containsExactly(ESSENTIAL_OIL);
+        assertThat(tags("Pelargonium Graveolens Flower Oil")).containsExactly(ESSENTIAL_OIL);
+        assertThat(tags("LAVANDULA OIL/EXTRACT")).containsExactly(ESSENTIAL_OIL);
+        assertThat(tags("Olea Europaea Fruit Oil")).isEmpty();
+        assertThat(tags("Hippophae Rhamnoides Fruit Oil")).isEmpty();
+        assertThat(tags("Melaleuca Alternifolia (Tea Tree) Leaf Water")).isEmpty();
+        assertThat(tags("Rosmarinus Officinalis Leaf Extract")).isEmpty();
+    }
+
+    @Test
+    void dryingAlcoholsButNotFattyAlcohols() {
+        assertThat(tags("Alcohol Denat.")).containsExactly(DRYING_ALCOHOL);
+        assertThat(tags("ethanol")).containsExactly(DRYING_ALCOHOL);
+        assertThat(tags("Cetearyl Alcohol")).isEmpty();
+        assertThat(tags("Stearyl Alcohol")).isEmpty();
+    }
+
+    @Test
+    void nutsIncludeSheaButNotCoconutOrWitchHazel() {
+        assertThat(tags("Prunus Amygdalus Dulcis Oil")).containsExactly(NUT);
+        assertThat(tags("Ethyl Macadamiate")).containsExactly(NUT);
+        assertThat(tags("Butyrospermum Parkii Butter")).containsExactly(NUT);
+        assertThat(tags("Sclerocarya Birrea Seed Oil")).containsExactly(NUT);
+        assertThat(tags("Cocos Nucifera Oil")).isEmpty();
+        assertThat(tags("Coconut Alkanes")).isEmpty();
+        assertThat(tags("Hamamelis Virginiana (Witch Hazel) Extract")).isEmpty();
+    }
+
+    @Test
+    void soy() {
+        assertThat(tags("Glycine Soja Oil")).containsExactly(SOY);
+        assertThat(tags("Hydrolyzed Soy Protein")).containsExactly(SOY);
+        assertThat(tags("Glycine Max (Soybean) Seed Extract")).containsExactly(SOY);
+    }
+
+    @Test
+    void activesOnlyWhenTheyAreTheRealThing() {
+        assertThat(tags("Retinol")).containsExactly(RETINOID);
+        assertThat(tags("Adapalene")).containsExactly(RETINOID);
+        assertThat(tags("Hydroxypinacolone Retinoate")).containsExactly(RETINOID);
+        assertThat(tags("Glycolic Acid")).containsExactly(AHA);
+        assertThat(tags("Citric Acid")).isEmpty();
+        assertThat(tags("Lactic Acid/Glycolic Acid Copolymer")).isEmpty();
+        assertThat(tags("Salicylic Acid")).containsExactly(BHA);
+        assertThat(tags("Betaine Salicylate")).containsExactly(BHA);
+        assertThat(tags("Butyloctyl Salicylate")).isEmpty(); // an emollient, not an exfoliant
+        assertThat(tags("3-O-Ethyl Ascorbic Acid")).containsExactly(VITAMIN_C);
+        assertThat(tags("Tetrahexyldecyl Ascorbate")).containsExactly(VITAMIN_C);
+        assertThat(tags("Benzoyl Peroxide")).containsExactly(BENZOYL_PEROXIDE);
+        assertThat(tags("Niacinamide")).containsExactly(NIACINAMIDE);
+        assertThat(tags("Cetyl Tranexamate Mesylate")).containsExactly(TRANEXAMIC_ACID);
+        assertThat(tags("Azelaic Acid")).containsExactly(AZELAIC_ACID);
+        assertThat(tags("Ceramide NP")).containsExactly(CERAMIDE);
+    }
+
+    @Test
+    void anyNameOfTheIngredientCounts() {
+        assertThat(tags("Aqua", "water")).isEmpty();
+        assertThat(tags("Parfum", "fragrance", "perfume")).containsExactly(FRAGRANCE);
+    }
+}

@@ -7,6 +7,7 @@ import com.skinvidhi.core.catalog.CatalogCsvReader.CatalogProduct;
 import com.skinvidhi.core.catalog.ProductWriter.ProductData;
 import com.skinvidhi.core.ingredient.IngredientListParser;
 import com.skinvidhi.core.ingredient.IngredientResolver;
+import com.skinvidhi.core.ingredient.IngredientTagger;
 import com.skinvidhi.core.ingredient.LabelIngredient;
 import java.io.IOException;
 import java.io.Reader;
@@ -37,11 +38,14 @@ public class CatalogImporter {
     private final JdbcTemplate jdbc;
     private final TransactionTemplate tx;
     private final ProductWriter productWriter;
+    private final IngredientTagger tagger;
 
-    public CatalogImporter(JdbcTemplate jdbc, TransactionTemplate tx, ProductWriter productWriter) {
+    public CatalogImporter(JdbcTemplate jdbc, TransactionTemplate tx, ProductWriter productWriter,
+                           IngredientTagger tagger) {
         this.jdbc = jdbc;
         this.tx = tx;
         this.productWriter = productWriter;
+        this.tagger = tagger;
     }
 
     /** Imports catalog/products.csv and catalog/offers.csv from the given directory. */
@@ -89,6 +93,7 @@ public class CatalogImporter {
                         o.url(), o.checkedOn().atStartOfDay().atOffset(ZoneOffset.UTC));
             }
         });
+        tagger.retagAll();
         return new Result(catalog.products().size(), catalog.offers().size(), resolver.ingredientsCreated());
     }
 }

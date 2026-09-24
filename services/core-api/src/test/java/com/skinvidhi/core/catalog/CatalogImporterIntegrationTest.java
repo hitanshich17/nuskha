@@ -78,6 +78,20 @@ class CatalogImporterIntegrationTest {
     }
 
     @Test
+    void tagsIngredientsAfterImport() throws IOException {
+        importer.importCatalog(CatalogCsvReaderTest.read("""
+                tagged,Brand T,Tagged Cream,moisturizer,,"Aqua, Fragrance (Parfum), Ethyl Macadamiate, Lactic Acid/Glycolic Acid Copolymer, Citric Acid",,https://t.example/p
+                """, ""));
+
+        assertThat(jdbc.queryForList("""
+                SELECT i.inci_name || ':' || t.tag FROM product_ingredients pi
+                JOIN ingredients i ON i.id = pi.ingredient_id
+                JOIN ingredient_tags t ON t.ingredient_id = i.id
+                ORDER BY pi.position
+                """, String.class)).containsExactly("Parfum:FRAGRANCE", "Ethyl Macadamiate:NUT");
+    }
+
+    @Test
     void reimportReplacesOffersFromTheFile() throws IOException {
         importCsv(TWO_OFFERS);
         CatalogImporter.Result second = importCsv(

@@ -5,6 +5,7 @@ import com.skinvidhi.core.catalog.ProductWriter;
 import com.skinvidhi.core.catalog.ProductWriter.ProductData;
 import com.skinvidhi.core.ingredient.IngredientListParser;
 import com.skinvidhi.core.ingredient.IngredientResolver;
+import com.skinvidhi.core.ingredient.IngredientTagger;
 import com.skinvidhi.core.ingredient.LabelIngredient;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,12 +45,15 @@ public class ObfImporter {
     private final TransactionTemplate tx;
     private final ObjectMapper mapper;
     private final ProductWriter productWriter;
+    private final IngredientTagger tagger;
 
-    public ObfImporter(JdbcTemplate jdbc, TransactionTemplate tx, ObjectMapper mapper, ProductWriter productWriter) {
+    public ObfImporter(JdbcTemplate jdbc, TransactionTemplate tx, ObjectMapper mapper, ProductWriter productWriter,
+                       IngredientTagger tagger) {
         this.jdbc = jdbc;
         this.tx = tx;
         this.mapper = mapper;
         this.productWriter = productWriter;
+        this.tagger = tagger;
     }
 
     public ImportStats importFile(Path file) throws IOException {
@@ -85,6 +89,7 @@ public class ObfImporter {
                 log.info("{} lines read, {} products imported", lines, outcomes.getOrDefault(Outcome.IMPORTED, 0));
             }
         }
+        tagger.retagAll();
         return new ImportStats(lines, outcomes, resolver.ingredientsCreated());
     }
 
